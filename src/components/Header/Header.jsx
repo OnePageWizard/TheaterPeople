@@ -2,39 +2,51 @@ import * as React from "react"
 import { Link } from "gatsby"
 import "./Header.scss"
 
+import VK from "./../../images/VK.svg"
+import INST from "./../../images/INST.svg"
+import LOGO from "./../../images/logo.svg"
+
 const Header = () => (
-  <header classname="header">
-    <div classname="header__wrapper">
-      <div classname="header__logo">
+  <header className="header">
+    <div className="header__wrapper">
+      <div className="header__logo">
         <Link>
-          <img src="./src/img/logo.svg" alt="#" />
+          <img src={LOGO} alt="#" className="header__logo__img" />
         </Link>
-        <div classname="header__logo__block-name">
-          <p classname="header__logo__block-name__name">ЛЮДИ</p>
-          <p classname="header__logo__block-name__name-info">
+        <div className="header__logo__block-name">
+          <p className="header__logo__block-name__name">ЛЮДИ</p>
+          <p className="header__logo__block-name__name-info">
             Театральная студия
           </p>
         </div>
       </div>
-      <div classname="header__content">
-        <ul classname="header__content__navbar">
+      <div className="header__content">
+        <ul className="header__content__navbar">
           <li>
-            <Link>ГЛАВНАЯ</Link>
+            <Link className="Link" to="/">
+              ГЛАВНАЯ
+            </Link>
           </li>
           <li>
-            <Link>АФИША</Link>
+            <Link className="Link" to="/Poster">
+              АФИША
+            </Link>
           </li>
           <li>
-            <Link>ОБУЧЕНИЕ</Link>
+            <Link className="Link" to="/Training">
+              ОБУЧЕНИЕ
+            </Link>
           </li>
           <li>
-            <Link>РЕПЕРТУАР</Link>
+            <Link className="Link" to="/Repertoire">
+              РЕПЕРТУАР
+            </Link>
           </li>
         </ul>
 
-        <div classname="header__content__info">
-          <img src="./src/img/INST.svg" alt="#" />
-          <img src="./src/img/VK.svg" alt="#" />
+        <div className="header__content__info">
+          <img src={INST} alt="#" />
+          <img src={VK} alt="#" />
         </div>
       </div>
     </div>

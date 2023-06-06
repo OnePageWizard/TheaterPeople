@@ -1,0 +1,8 @@
+$black_main: #262625;
+
+.wrapper{
+  background-color: $black_main;
+  &__child{
+    height: 100%;
+  }
+}
