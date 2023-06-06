@@ -1,3 +1,5 @@
+$white: #FDF4E3;
+
 .header{
   z-index: 2;
   width: 100%;
@@ -26,7 +28,7 @@
   }
   &__block-name{
     cursor: pointer;
-    color: #FDF4E3;
+    color: $white;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -61,7 +63,7 @@
   &__navbar{
     margin-top: 10px;
     display: flex;
-    color: #FDF4E3;
+    color: $white;
     margin-bottom: 0px;
   }
   &__info{
@@ -92,7 +94,7 @@
 .Link {
   transition: color .6s;
   text-decoration: none;
-  color: #FDF4E3;
+  color: $white;
 }
 
 li{
