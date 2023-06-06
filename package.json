@@ -1,51 +1,16 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "dependencies": {
-    "babel-plugin-styled-components": "^2.1.3",
-    "gatsby": "^5.10.0",
-    "gatsby-link": "^5.10.0",
-    "gatsby-plugin-image": "^3.10.0",
-    "gatsby-plugin-manifest": "^5.10.0",
-    "gatsby-plugin-sass": "^6.10.0",
-    "gatsby-plugin-sharp": "^5.10.0",
-    "gatsby-plugin-styled-components": "^6.10.0",
-    "gatsby-plugin-typography": "^5.10.0",
-    "gatsby-source-filesystem": "^5.10.0",
-    "gatsby-transformer-sharp": "^5.10.0",
-    "node-sass": "^8.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-typography": "^0.16.23",
-    "sass": "^1.62.1",
-    "styled-components": "^5.3.11",
-    "typography": "^0.16.21",
-    "typography-theme-noriega": "^0.16.19"
-  },
-  "devDependencies": {
-    "prettier": "^2.8.8"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
+  "name": "theaterpeople",
+  "version": "1.0.0",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "develop:backend": "npm run --prefix backend develop",
+    "develop:frontend": "npm run --prefix frontend develop",
+    "develop": "cross-env FORCE_COLOR=1 npm-run-all -l -p develop:*"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5",
+    "wait-on": "^7.0.1"
   }
 }
