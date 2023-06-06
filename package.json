@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "develop:backend": "npm run --prefix backend develop",
-    "develop:frontend": "npm run --prefix frontend develop",
+    "develop:frontend": "wait-on http://127.0.0.1:1337 && npm run --prefix frontend develop",
     "develop": "cross-env FORCE_COLOR=1 npm-run-all -l -p develop:*"
   },
   "author": "",
