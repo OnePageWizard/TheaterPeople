@@ -47,7 +47,7 @@ const IndexPage = () => {
               // https://react-slick.neostack.com/docs/api
               dots: true,
               infinite: true,
-              autoplay: false,
+              autoplay: true,
               speed: 750,
               slidesToShow: 1,
               slidesToScroll: 1,

@@ -1,7 +1,20 @@
+@mixin mobile {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
 .slick-slider{
   position: relative;
   display: block;
 }
+
 .slick-loading .slick-slide,
 .slick-loading .slick-track {
   visibility: hidden;
@@ -93,27 +106,58 @@
 
 .slider{
   &__text{
+    display: flex;
+    flex-direction: column;
     position: absolute;
     color: #ffffff;
-    padding: 0 0 0 312px;
+    padding: 0 0 0 calc(100vw - 90vw);
     bottom: 250px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    letter-spacing: 0.05em;
   }
 
   &__header{
-    height: auto;
-    margin-bottom: -20px;
+    @include desktop() {
+      height: auto;
+      margin-bottom: -20px;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      width: 100vw;
+      font-size: 48px;
+      width: calc(100vw - calc(100vw - 90vw));
+      letter-spacing: 0.05em;
+      flex-wrap: wrap;
+    }
+
+    @include mobile() {
+      height: auto;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      width: 100vw;
+      font-size: 28px;
+      width: calc(100vw - calc(100vw - 90vw));
+      letter-spacing: 0.05em;
+      flex-wrap: wrap;
+    }
   }
 
   &__header-about{
-    font-family: 'Zen Kaku Gothic New';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 32px;
-    height: auto;
+    @include desktop() {
+      font-family: 'Zen Kaku Gothic New';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 32px;
+      width: calc(100vw - calc(100vw - 90vw));
+      flex-wrap: wrap;
+    }
+
+    @include mobile() {
+      font-family: 'Zen Kaku Gothic New';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      width: calc(100vw - calc(100vw - 90vw));
+      flex-wrap: wrap;
+    }
   }
 }

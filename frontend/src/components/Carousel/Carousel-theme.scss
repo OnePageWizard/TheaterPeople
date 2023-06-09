@@ -1,3 +1,15 @@
+@mixin mobile {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
 @charset 'UTF-8';
 .slick-dots{
   position: absolute;
@@ -27,37 +39,70 @@
   margin-bottom: 30px;
 }
 .slick-dots {
-  bottom: -25px;
+  bottom: 120px;
   width: 100%;
   margin: 0;
   list-style: none;
   text-align: center;
 }
 .slick-dots li {
-  transition: background-color .9s;
-  background-color: #fff;
-  position: relative;
-  display: inline-block;
-  width: 145.5px;
-  height: 8.2px;
-  margin: 0 5px;
-  padding: 0;
-  cursor: pointer;
-  border-radius: 5px;
+  @include desktop(){
+    transition: background-color .9s;
+    background-color: #fff;
+    position: relative;
+    display: inline-block;
+    width: 145.5px;
+    height: 8.2px;
+    margin: 0 20px;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  @include mobile(){
+    transition: background-color .9s;
+    background-color: #fff;
+    position: relative;
+    display: inline-block;
+    width: 35.5px;
+    height: 8.2px;
+    margin: 0 10px;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 5px;
+  }
 }
 .slick-dots li button {
-  font-size: 0;
-  line-height: 0;
-  display: block;
-  width: 145.5px;
-  height: 8.2px;
-  padding: 5px;
-  cursor: pointer;
-  color: transparent;
-  border: 0;
-  outline: 0;
-  background: 0 0;
-  border-radius: 5px;
+  @include desktop(){
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 145.5px;
+    height: 8.2px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: 0;
+    background: 0 0;
+    border-radius: 5px;
+  }
+
+  @include mobile(){
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 35.5px;
+    height: 8.2px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: 0;
+    background: 0 0;
+    border-radius: 5px;
+  }
+
 }
 // .slick-dots li button:focus,
 // .slick-dots li button:hover {
@@ -88,8 +133,4 @@ li.slick-active{
 .slick-prev,
 .slick-arrow {
   display: none;
-}
-
-.slick-dots{
-  bottom: 80px;
 }
