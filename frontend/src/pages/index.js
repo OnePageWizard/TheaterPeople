@@ -18,13 +18,27 @@ const IndexPage = () => {
       }
     }
   `)
+
+  // const strapiMainSlide = useStaticQuery(graphql`
+  //   query MyQuery {
+  //     allStrapiMainSlide {
+  //       nodes {
+  //         Header
+  //         Image {
+  //           url
+  //         }
+  //         Description
+  //       }
+  //     }
+  //   }
+  // `)
   
   return (
     <Layout>
       <div className="block">
         <LazyLoad></LazyLoad>
-        <h1>{strapiMainpage.strapiMainpage.Header}</h1>
-        <p>{strapiMainpage.strapiMainpage.Text.data.Text}</p>
+        <h1 className="block__header-about">{strapiMainpage.strapiMainpage.Header}</h1>
+        <p className="block__text-about">{strapiMainpage.strapiMainpage.Text.data.Text}</p>
       </div>
     </Layout>
   )
