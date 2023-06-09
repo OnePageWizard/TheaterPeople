@@ -6,8 +6,8 @@ import VK from "./../../images/VK.svg"
 import INST from "./../../images/INST.svg"
 import LOGO from "./../../images/logo.svg"
 
-const Header = () => (
-  <header className="header">
+const Header = ({ HeadActive }) => (
+  <header className={HeadActive ? "header__active" : "header"}>
     <div className="header__wrapper">
       <div className="header__logo">
         <Link>

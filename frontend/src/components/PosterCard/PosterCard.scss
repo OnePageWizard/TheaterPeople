@@ -1,0 +1,92 @@
+.poster__wrapper{
+  display: flex;
+  justify-content: space-between;
+  max-width: 1296px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 150px;
+  transition: height .6s;
+  background: rgba(0, 0, 0, 0.15);
+}
+.poster__wrapper:hover{
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 200px;
+  transition: height .6s, background-color .6s;
+}
+
+.poster__date-name{
+  display: flex;
+  &__date{
+    margin: 0 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    span{  
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      color: #FDF4E3;
+    }
+  }
+  &__name{
+    margin: 0 0 0 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__title{
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+      color: #FDF4E3;
+    }
+    &__about{
+      max-width: 636px;
+      width: 100%;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      color: #FDF4E3;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.poster__age-booking{
+  display: flex;
+  margin-right: 45px;
+  cursor: pointer;
+  &__age{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;    
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__booking{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    display: flex;
+    align-items: center; 
+    color: #7EB12A;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 45px;
+  }
+}
