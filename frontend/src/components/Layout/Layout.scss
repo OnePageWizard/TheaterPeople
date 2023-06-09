@@ -1,8 +1,14 @@
 $black_main: #262625;
 
-.wrapper{
+.block{
   background-color: $black_main;
-  &__child{
-    height: 100%;
-  }
+  min-height: 100vh;
+}
+
+.content{
+  min-height: calc(100vh - 130px);
+}
+
+.content__active{
+  min-height: calc(100vh - 356px);
 }

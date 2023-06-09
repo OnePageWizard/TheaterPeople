@@ -1,0 +1,16 @@
+.reportoire__wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 10%;
+  flex-wrap: wrap;
+  gap: 20px 35px;
+  max-width: 100%;
+  margin: 0 312px 50px 312px;
+  transition: .6s;
+}
+
+.reportoire__wrapper:hover{
+  margin-right: 292px;
+  transition: .6s;
+}
