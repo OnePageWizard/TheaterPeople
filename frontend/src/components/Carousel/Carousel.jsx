@@ -9,20 +9,20 @@ const Carousel = ({ elems, settings }) => {
   return (
     <div>
       <Slider {...settings}>
-        {
-          elems.map((elem) => (
-            <div>
-                <GatsbyImage
-                  className="slider-post"
-                  image={getImage(elem.Image?.localFile)}
-                  alt=""
-                />
-                {/* <img src={getImage(elem.Image?.localFile)} /> */}
-              <div className="slider-header">{elem.Header}</div>
-              <div className="slider-header">{elem.Description}</div>
+        {elems.map(elem => (
+          <div>
+            <GatsbyImage
+              className="slider-post"
+              image={getImage(elem.Image?.localFile)}
+              alt=""
+            />
+            {/* <img src={getImage(elem.Image?.localFile)} /> */}
+            <div className="slider__text">
+              <div className="slider__header">{elem.Header}</div>
+              <div className="slider__header-about">{elem.Description}</div>
             </div>
-          ))
-        }
+          </div>
+        ))}
       </Slider>
     </div>
   )

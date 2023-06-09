@@ -88,14 +88,32 @@
   width: 100%;
   object-fit: cover;
   max-height: 100vh;
-  min-height: 1vh;
+  min-height: 100vh;
 }
 
-.slider-header{
-  font-size: 36px;
-  position: absolute;
-  height: 200px;
-  bottom: 100px;
-  padding: 0 0 0 300px;
-  color: aliceblue;
+.slider{
+  &__text{
+    position: absolute;
+    color: #ffffff;
+    padding: 0 0 0 312px;
+    bottom: 250px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    letter-spacing: 0.05em;
+  }
+
+  &__header{
+    height: auto;
+    margin-bottom: -20px;
+  }
+
+  &__header-about{
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    height: auto;
+  }
 }
