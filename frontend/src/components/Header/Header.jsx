@@ -2,15 +2,13 @@ import * as React from "react"
 import { Link } from "gatsby"
 import "./Header.scss"
 
-import VK from "./../../images/VK.svg"
-import INST from "./../../images/INST.svg"
 import LOGO from "./../../images/logo.svg"
 
 const Header = ({ HeadActive }) => (
   <header className={HeadActive ? "header__active" : "header"}>
     <div className="header__wrapper">
       <div className="header__logo">
-        <Link>
+        <Link to="/">
           <img src={LOGO} alt="#" className="header__logo__img" />
         </Link>
         <div className="header__logo__block-name">
@@ -44,10 +42,10 @@ const Header = ({ HeadActive }) => (
           </li>
         </ul>
 
-        <div className="header__content__info">
+        {/* <div className="header__content__info">
           <img src={INST} alt="#" />
           <img src={VK} alt="#" />
-        </div>
+        </div> */}
       </div>
     </div>
   </header>

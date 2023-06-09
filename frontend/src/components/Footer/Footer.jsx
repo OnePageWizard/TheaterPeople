@@ -41,7 +41,7 @@ const Footer = () => {
       </div>
 
       <div className="footer__block">
-        <ul className="footer__block__navbar">
+        {/* <ul className="footer__block__navbar">
           <li onClick={() => onTop("/")}>
             <p>ГЛАВНАЯ</p>
           </li>
@@ -54,7 +54,7 @@ const Footer = () => {
           <li onClick={() => onTop("/Repertoire")}>
             <p>РЕПЕРТУАР</p>
           </li>
-        </ul>
+        </ul> */}
 
         <div className="footer__block__info">
           <img className="footer__block__info__img" src={INST} alt="#" />
