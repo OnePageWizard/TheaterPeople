@@ -53,8 +53,10 @@ const IndexPage = () => {
             }
             }
         />
-        <h1 className="block__header-about">{strapiMainpage.Header}</h1>
-        <p className="block__text-about">{strapiMainpage.Text.data.Text}</p>
+        <div className="block__text-wrapper">
+          <h1 className="block__header-about">{strapiMainpage.Header}</h1>
+          <p className="block__text-about">{strapiMainpage.Text.data.Text}</p>
+        </div>
       </div>
     </Layout>
   )
