@@ -14,7 +14,6 @@
     "gatsby-plugin-sharp": "^5.10.0",
     "gatsby-plugin-styled-components": "^6.10.0",
     "gatsby-plugin-typography": "^5.10.0",
-    "gatsby-source-filesystem": "^5.10.0",
     "gatsby-source-strapi": "^3.2.0",
     "gatsby-transformer-sharp": "^5.10.0",
     "node-sass": "^8.0.0",

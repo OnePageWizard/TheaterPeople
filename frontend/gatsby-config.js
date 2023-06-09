@@ -18,18 +18,26 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
-        collectionTypes: ["new", "main-slide"],
+        collectionTypes: [
+          "new",
+          {
+            singularName: "main-slide",
+            queryParams: {
+              publicationState:
+                process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
+              populate: {
+                Image: "*",
+                blocks: {
+                  populate: "*",
+                },
+              },
+            },
+          },
+        ],
         singleTypes: ["mainpage"],
       },
     },
     `gatsby-plugin-image`,
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `images`,
-    //     path: `${__dirname}/src/images`,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-typography`,
       options: {

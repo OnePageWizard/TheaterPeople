@@ -1,13 +1,27 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/Layout/Layout"
-import LazyLoad from "../components/Carousel/Carousel"
+import Carousel from "../components/Carousel/Carousel"
 
 import "./index.scss"
 
 const IndexPage = () => {
-  const strapiMainpage = useStaticQuery(graphql`
+  const { allStrapiMainSlide, strapiMainpage } = useStaticQuery(graphql`
     query {
+      allStrapiMainSlide {
+        nodes {
+          id
+          Header
+          Image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          Description
+        }
+      }
       strapiMainpage {
         Header
         Text {
@@ -18,31 +32,32 @@ const IndexPage = () => {
       }
     }
   `)
-
-  // const strapiMainSlide = useStaticQuery(graphql`
-  //   query MyQuery {
-  //     allStrapiMainSlide {
-  //       nodes {
-  //         Header
-  //         Image {
-  //           url
-  //         }
-  //         Description
-  //       }
-  //     }
-  //   }
-  // `)
   
   return (
     <Layout>
       <div className="block">
-        <LazyLoad></LazyLoad>
-        <h1 className="block__header-about">{strapiMainpage.strapiMainpage.Header}</h1>
-        <p className="block__text-about">{strapiMainpage.strapiMainpage.Text.data.Text}</p>
+        <Carousel 
+            elems = {allStrapiMainSlide.nodes}
+            settings = {{
+              // https://react-slick.neostack.com/docs/api
+              dots: true,
+              lazyLoad: true,
+              infinite: true,
+              autoplay: true,
+              speed: 500,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows: false,
+              initialSlide: 0,
+              navButtonsAlwaysVisible: false,
+            }
+            }
+        />
+        <h1 className="block__header-about">{strapiMainpage.Header}</h1>
+        <p className="block__text-about">{strapiMainpage.Text.data.Text}</p>
       </div>
     </Layout>
   )
 }
 
 export default IndexPage
-
