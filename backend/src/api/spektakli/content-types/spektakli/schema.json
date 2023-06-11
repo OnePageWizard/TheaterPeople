@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "spektaklis",
+  "info": {
+    "singularName": "spektakli",
+    "pluralName": "spektaklis",
+    "displayName": "Спектакли",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Title": {
+      "type": "string",
+      "required": true,
+      "default": "Название"
+    },
+    "Description": {
+      "type": "richtext",
+      "required": true,
+      "default": "Описание"
+    },
+    "Premiere": {
+      "type": "date",
+      "required": true
+    },
+    "ShortDesc": {
+      "type": "string",
+      "default": "Краткое описание",
+      "required": true
+    },
+    "UID": {
+      "type": "uid",
+      "default": "0",
+      "required": true
+    },
+    "Media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "Age": {
+      "type": "string",
+      "default": "18+",
+      "required": true,
+      "minLength": 3
+    },
+    "Director": {
+      "type": "string",
+      "default": "Наталья Скиба",
+      "required": true
+    }
+  }
+}

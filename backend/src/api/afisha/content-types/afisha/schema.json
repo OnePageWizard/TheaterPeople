@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "afishas",
+  "info": {
+    "singularName": "afisha",
+    "pluralName": "afishas",
+    "displayName": "Афиша",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Date": {
+      "type": "datetime",
+      "required": true
+    },
+    "UID": {
+      "type": "uid",
+      "required": true
+    }
+  }
+}

@@ -13,10 +13,20 @@
   "pluginOptions": {},
   "attributes": {
     "Header": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Text": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

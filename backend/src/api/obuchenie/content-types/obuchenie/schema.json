@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "obuchenies",
+  "info": {
+    "singularName": "obuchenie",
+    "pluralName": "obuchenies",
+    "displayName": "Обучение",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Header": {
+      "type": "string",
+      "required": true,
+      "default": "Заголовок"
+    },
+    "Text": {
+      "type": "richtext",
+      "required": true,
+      "default": "Текст"
+    },
+    "Media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    }
+  }
+}

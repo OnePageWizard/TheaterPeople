@@ -4,7 +4,8 @@
   "info": {
     "singularName": "main-slide",
     "pluralName": "main-slides",
-    "displayName": "Слайдер на главной"
+    "displayName": "Слайдер на главной",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,20 +13,22 @@
   "pluginOptions": {},
   "attributes": {
     "Image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Header": {
-      "type": "string"
+      "type": "string",
+      "default": "Заголовок",
+      "required": true
     },
     "Description": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "default": "Подзаголовок"
     }
   }
 }
