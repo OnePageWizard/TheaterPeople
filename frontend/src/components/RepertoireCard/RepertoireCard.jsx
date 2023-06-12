@@ -1,12 +1,17 @@
 import React from "react"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import "./RepertoireCard.scss"
 
-const RepertoireCard = props => {
+const RepertoireCard = ({ img, title }) => {
   return (
     <div className="cardContent">
-      <img className="cardContent__image" src={props.img} alt="#" />
-      <span className="cardContent__title">{props.title}</span>
+      <GatsbyImage
+        className="cardContent__image"
+        image={getImage(img?.localfile)}
+        alt=""
+      />
+      <span className="cardContent__title">{title}</span>
     </div>
   )
 }

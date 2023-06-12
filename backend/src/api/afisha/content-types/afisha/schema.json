@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "afishas",
   "info": {
     "singularName": "afisha",
@@ -12,13 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Date": {
-      "type": "datetime",
-      "required": true
-    },
-    "UID": {
-      "type": "uid",
-      "required": true
+    "Afisha": {
+      "type": "component",
+      "repeatable": true,
+      "component": "afisha.afisha"
     }
   }
 }

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_afisha_afishas",
+  "info": {
+    "displayName": "Afisha"
+  },
+  "options": {},
+  "attributes": {
+    "Header": {
+      "type": "string"
+    },
+    "Card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "afisha.test"
+    }
+  }
+}

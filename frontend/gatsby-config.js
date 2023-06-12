@@ -13,7 +13,7 @@ module.exports = {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
         collectionTypes: [
-          "new",
+          "new", "afisha",
           {
             singularName: "main-slide",
             queryParams: {
@@ -21,6 +21,19 @@ module.exports = {
                 process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
               populate: {
                 Image: "*",
+                blocks: {
+                  populate: "*",
+                },
+              },
+            },
+          },
+          {
+            singularName: "spektakli",
+            queryParams: {
+              publicationState:
+                process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
+              populate: {
+                Cover: "*",
                 blocks: {
                   populate: "*",
                 },

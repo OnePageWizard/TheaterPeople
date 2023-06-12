@@ -7,7 +7,7 @@ import "./index.scss"
 
 const IndexPage = () => {
   const { allStrapiMainSlide, strapiMainpage } = useStaticQuery(graphql`
-    query {
+    {
       allStrapiMainSlide {
         nodes {
           id

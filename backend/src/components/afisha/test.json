@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_t_tests",
+  "info": {
+    "displayName": "AfishaCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Date": {
+      "type": "date",
+      "required": true,
+      "default": "2023-06-01"
+    },
+    "Time": {
+      "type": "time",
+      "required": true,
+      "default": "12:00"
+    },
+    "Title": {
+      "type": "string",
+      "required": true,
+      "default": "Название"
+    },
+    "Desc": {
+      "type": "string",
+      "required": true,
+      "default": "Описание"
+    },
+    "Age": {
+      "type": "string",
+      "required": true,
+      "maxLength": 3,
+      "default": "18+"
+    }
+  }
+}

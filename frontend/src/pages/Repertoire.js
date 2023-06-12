@@ -1,26 +1,38 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Layout from '../components/Layout/Layout'
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import RepertoireCard from '../components/RepertoireCard/RepertoireCard'
 
 import "./Repertoire.scss"
 
-const a = [{title: "dmkfk;gjkldjfgkl", img:"#"},
-{title: "dmkfk;gjkldjf gk5345 wqd l", img:"#"},
-{title: "dmkfk;g jkldjfgkl", img:"#"},
-{title: "dmkfk;gjklf sdf s djf gkl", img:"#"},
-{title: "dmk fk;gjkldjfgkl", img:"#"},
-{title: "dmkf k;gjkldj fgkl", img:"#"},
-{title: "d kfk;gjkld jfgkl", img:"#"},
-] 
-
 const Repertoire = () => {
-  const [Repertoires, setRepertoires] = useState(a)
+  const { allStrapiSpektakli } = useStaticQuery(graphql`
+    {
+      allStrapiSpektakli {
+        nodes {
+          Title
+          Cover {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  quality: 100
+                  breakpoints: [750, 1000, 1366, 1920]
+                  placeholder: BLURRED
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
 
   return (
     <Layout HeadActive={true}>
       <div className='reportoire__wrapper'>
-        {Repertoires.map((obj) => <RepertoireCard img={obj.img} title={obj.title}/>)}
+        {allStrapiSpektakli.nodes.map((obj) => <RepertoireCard img={obj.Cover} title={obj.Title}/>)}
       </div>
     </Layout>
   )
