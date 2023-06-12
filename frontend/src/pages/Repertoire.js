@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout/Layout'
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import RepertoireCard from '../components/RepertoireCard/RepertoireCard'
 
@@ -12,6 +11,7 @@ const Repertoire = () => {
     {
       allStrapiSpektakli {
         nodes {
+          id
           Title
           Cover {
             localFile {
@@ -32,7 +32,8 @@ const Repertoire = () => {
   return (
     <Layout HeadActive={true}>
       <div className='reportoire__wrapper'>
-        {allStrapiSpektakli.nodes.map((obj) => <RepertoireCard img={obj.Cover} title={obj.Title}/>)}
+        {allStrapiSpektakli.nodes.map((spektakl) => (<RepertoireCard card={spektakl} />
+        ))}
       </div>
     </Layout>
   )

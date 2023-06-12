@@ -1,7 +1,8 @@
 {
   "collectionName": "components_afisha_afishas",
   "info": {
-    "displayName": "Afisha"
+    "displayName": "Afisha",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,7 +12,8 @@
     "Card": {
       "type": "component",
       "repeatable": true,
-      "component": "afisha.test"
+      "component": "afisha.test",
+      "required": true
     }
   }
 }

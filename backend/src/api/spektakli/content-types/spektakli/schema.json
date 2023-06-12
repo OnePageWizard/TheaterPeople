@@ -23,7 +23,8 @@
     "Title": {
       "type": "string",
       "required": true,
-      "default": "Название"
+      "default": "Название",
+      "unique": true
     },
     "Description": {
       "type": "richtext",

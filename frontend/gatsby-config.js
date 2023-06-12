@@ -13,7 +13,7 @@ module.exports = {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
         collectionTypes: [
-          "new", "afisha",
+          "new",
           {
             singularName: "main-slide",
             queryParams: {
@@ -41,7 +41,7 @@ module.exports = {
             },
           },
         ],
-        singleTypes: ["mainpage"],
+        singleTypes: ["mainpage", "afisha", "card"], 
       },
     },
     `gatsby-plugin-image`,

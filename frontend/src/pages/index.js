@@ -20,6 +20,7 @@ const IndexPage = () => {
                   breakpoints: [750, 1000, 1366, 1920]
                   aspectRatio: 1.7
                   placeholder: BLURRED
+                  transformOptions: { cropFocus: CENTER }
                 )
               }
             }
