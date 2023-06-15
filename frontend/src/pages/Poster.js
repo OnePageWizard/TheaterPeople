@@ -25,18 +25,6 @@ const Afisha = () => {
       }
     }
   `)
-  
-  const [posters, setPosters] = useState([])
-  const [month,setMonth] = useState([]);
-  console.log(strapiPosters)
-  console.log(strapiPosters.allStrapiAfisha.nodes[0].Afisha[0].Card[0].Date.slice("-", 5));
-  useEffect(()=>{
-    posters.forEach((obj)=>{
-      if(month.indexOf(obj.month) === -1){
-        setMonth([...month,obj.month])
-      }
-    })
-  },[posters])
 
   return (
     <Layout HeadActive={true}>
