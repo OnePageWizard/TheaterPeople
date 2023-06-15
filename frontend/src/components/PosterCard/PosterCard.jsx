@@ -17,10 +17,10 @@ const PosterCard = props => {
       </div>
       <div className="poster__age-booking">
         <div className="poster__age-booking__age">
-          <span>{props.age}+</span>
+          <span>{props.age}</span>
         </div>
         <div className="poster__age-booking__booking">
-          <span>Забранировать место</span>
+          <span>Забронировать место</span>
         </div>
       </div>
     </div>
