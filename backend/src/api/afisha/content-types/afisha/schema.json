@@ -15,7 +15,8 @@
     "Afisha": {
       "type": "component",
       "repeatable": true,
-      "component": "afisha.afisha"
+      "component": "afisha.afisha",
+      "required": true
     }
   }
 }

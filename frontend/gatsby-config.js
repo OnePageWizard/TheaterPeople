@@ -40,8 +40,35 @@ module.exports = {
               },
             },
           },
+          {
+            singularName: "obuchenie",
+            queryParams: {
+              publicationState:
+                process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
+              populate: {
+                Image: "*",
+                blocks: {
+                  populate: "*",
+                },
+              },
+            },
+          },
         ],
-        singleTypes: ["mainpage", "afisha", "card"], 
+        singleTypes: ["mainpage", 
+          {
+            singularName: "afisha",
+            queryParams: {
+              populate: {
+                Afisha: {
+                  populate: "*",
+                  Card: {
+                    populate: "*",
+                  }
+                },
+              },
+            },
+          },
+        ], 
       },
     },
     `gatsby-plugin-image`,
