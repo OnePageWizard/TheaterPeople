@@ -2,12 +2,30 @@ import * as React from "react"
 import Layout from "../components/Layout/Layout"
 import Carousel from "../components/Carousel/Carousel"
 import { useStaticQuery, graphql } from "gatsby"
+import NewsCard from "../components/NewsCard/NewsCard"
 
 import "./index.scss"
 
 const IndexPage = () => {
-  const { allStrapiMainSlide, strapiMainpage } = useStaticQuery(graphql`
+  const { allStrapiNew, allStrapiMainSlide, strapiMainpage } = useStaticQuery(graphql`
     {
+      allStrapiNew {
+        nodes {
+          Header
+          Text {
+            data {
+              Text
+            }
+          }
+          Image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
       allStrapiMainSlide {
         nodes {
           id
@@ -38,6 +56,7 @@ const IndexPage = () => {
       }
     }
   `)
+  console.log(allStrapiNew);
   return (
     <Layout>
       <div className="block">
@@ -60,6 +79,14 @@ const IndexPage = () => {
         <div className="block__text-wrapper">
           <h1 className="block__header-about">{strapiMainpage.Header}</h1>
           <p className="block__text-about">{strapiMainpage.Text.data.Text}</p>
+        </div>
+        <div class="heading_news">
+          НОВОСТИ
+        </div>
+        <div class="main_block-news">
+          {allStrapiNew.nodes.map((post) => (
+            <NewsCard NewsData={post}/>
+          ))}
         </div>
       </div>
     </Layout>

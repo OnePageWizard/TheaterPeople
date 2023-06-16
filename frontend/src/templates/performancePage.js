@@ -8,6 +8,7 @@ import { Pagination, Navigation } from "swiper";
 import 'swiper/scss';
 import "swiper/scss/pagination";
 import "swiper/scss/navigation";
+import "./performanceSlider.scss";
 
 const performancePage = ({ data }) => {
   const currentMonth = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"]

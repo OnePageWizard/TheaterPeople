@@ -1,0 +1,122 @@
+.block_news{
+  width: 100%;
+}
+
+.heading_news{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  height: 60px;
+  background-color: #7EB12A;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  color: #FDF4E3;
+}
+
+.news-card-wrapper{
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.news-card{
+  z-index: 2;
+  max-width: 1289px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.image-news{
+  max-width: 1289px;
+  max-height: 600px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 40px;
+  margin-bottom: 30px;
+}
+
+.block-text-news{
+  position: absolute;
+  left: 70px;
+  bottom: 70px;
+}
+
+.news-header{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  color: #FDF4E3;
+}
+
+.news-more{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  color: #FDF4E3;
+}
+
+.about-wrapper{
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+}
+
+.about-news{
+  margin-top: 30px;
+  max-width: 1124px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  text-align: justify;
+  color: #FDF4E3;
+  white-space: pre-line;
+  margin-bottom: 30px;
+}
+
+.alert-enter{
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 700ms, transform 700ms;
+}
+
+.alert-enter-done{
+  opacity: 1;
+  transform: translateY(0%);
+  transition: opacity 700ms, transform 700ms;
+}
+
+.alert-exit{
+  opacity: 1;
+  transform: translateY(0%);
+  transition: opacity 700ms, transform 700ms;
+}
+
+.alert-exit-active{
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 700ms, transform 700ms;
+}
