@@ -38,7 +38,6 @@ const IndexPage = () => {
       }
     }
   `)
-  
   return (
     <Layout>
       <div className="block">

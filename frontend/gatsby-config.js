@@ -34,6 +34,7 @@ module.exports = {
                 process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
               populate: {
                 Cover: "*",
+                Media: "*",
                 blocks: {
                   populate: "*",
                 },

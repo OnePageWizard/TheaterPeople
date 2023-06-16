@@ -1,0 +1,151 @@
+@mixin mobile {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+.main-content{
+  background-color: #262625;
+  height: auto;
+  padding-bottom: 50px;
+}
+
+.head-block__image{
+  max-height: 100vh;
+  max-width: 100%;
+  width: 100vw;
+  position: relative;
+}
+
+.head-block-name{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 0 calc(100% / 13);
+  bottom: calc(100vh - 80vh);
+  color: #FFFFFF;
+}
+
+.name-age{
+  @include desktop() {
+    height: auto;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    letter-spacing: 0.05em;
+    flex-wrap: wrap;
+  }
+
+  @include mobile() {
+    height: auto;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 0.05em;
+    flex-wrap: wrap;
+  }
+}
+
+.perfomance-about-briefly{
+  @include desktop() {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    flex-wrap: wrap;
+  }
+
+  @include mobile() {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    flex-wrap: wrap;
+  }
+}
+
+.bottom-block{
+  background-color: #262625;
+  padding: 0 calc(100% / 13);
+}
+
+.block-text{
+  display: flex;
+}
+
+.left-block{
+  display: flex;
+  flex-direction: column;
+  max-width: 416px;
+  min-width: 300px;
+  width: 100%;
+}
+
+.block-premier{
+  display: flex;
+  flex-direction: column;
+  background-color: #7EB12A;
+  padding: 15px 20px 15px 20px;
+}
+
+.conf, .director-header{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.date, .director-name{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.block-director{
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0 15px 20px;
+}
+
+.right-block{
+  padding: 25px 0 0 25px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.about-header{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  text-align: justify;
+  color: #FFFFFF;
+  margin-bottom: 15px;
+}
+
+.about-perfomance{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  text-align: justify;
+  color: #FFFFFF;
+  white-space:break-spaces;
+}
+
+.swiper-card{
+  height: 306px;
+  object-fit: cover;
+}
