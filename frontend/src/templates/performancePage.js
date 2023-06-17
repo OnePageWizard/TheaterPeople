@@ -1,10 +1,11 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import "./performancePage.scss";
 import Layout from "../components/Layout/Layout";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from "swiper";
+
+import "./performancePage.scss";
 import 'swiper/scss';
 import "swiper/scss/pagination";
 import "swiper/scss/navigation";
@@ -12,7 +13,7 @@ import "./performanceSlider.scss";
 
 const performancePage = ({ data }) => {
   const currentMonth = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"]
-  console.log(data.strapiSpektakli);
+  
   return (
     <Layout>
       <div class="main-content">
@@ -58,8 +59,6 @@ const performancePage = ({ data }) => {
                 spaceBetween={8}
                 slidesPerView={4}
                 navigation
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
                 loop={true}
                 pagination={{ clickable: true }}
               >
