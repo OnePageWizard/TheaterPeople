@@ -45,7 +45,11 @@ const performancePage = ({ data }) => {
                   <div class="right-block">
                       <span class="about-header">О СПЕКТАКЛЕ</span>
                       <span class="about-perfomance">
-                          {data.strapiSpektakli.Description.data.Description}
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: data.strapiSpektakli.Description.data.childMarkdownRemark.html,
+                            }}
+                          />
                       </span>
                   </div>
               </div>
@@ -83,7 +87,9 @@ export const pageQuery = graphql`
       ShortDesc
       Description {
         data {
-          Description
+          childMarkdownRemark {
+            html
+          }
         }
       }
       Director

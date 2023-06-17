@@ -88,7 +88,7 @@ const Training = () => {
             <span className='training__content__text'>{strapiTraining.Section[0].Text}</span>
           </div>
           <div className='training__content__ages'  style={{overflow: isActiveTeen ? 'visible' : 'hidden', opacity: isActiveTeen ? '1' : '0', height: isActiveTeen ? 'auto' : '0', transition: 'all 1s'}}>
-          <div className='training__content__title'>{strapiTraining.Section[1].Title}</div>
+            <div className='training__content__title'>{strapiTraining.Section[1].Title}</div>
             <span className='training__content__text'>{strapiTraining.Section[1].Text}</span>
           </div>
           <div className='training__content__ages'  style={{overflow: isActiveAdult ? 'visible' : 'hidden', opacity: isActiveAdult ? '1' : '0', height: isActiveAdult ? 'auto' : '0', transition: 'all 1s'}}>

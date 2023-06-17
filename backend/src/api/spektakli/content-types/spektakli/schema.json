@@ -53,7 +53,7 @@
       "type": "string",
       "default": "18+",
       "required": true,
-      "minLength": 3
+      "maxLength": 3
     },
     "Director": {
       "type": "string",
