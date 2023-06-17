@@ -7,30 +7,13 @@ import NewsCard from "../components/NewsCard/NewsCard"
 import "./index.scss"
 
 const IndexPage = () => {
-  const { allStrapiNew, allStrapiMainSlide, strapiMainpage } = useStaticQuery(graphql`
+  const { strapiHomepage } = useStaticQuery(graphql`
     {
-      allStrapiNew {
-        nodes {
-          Header
-          Text {
-            data {
-              Text
-            }
-          }
-          Image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-      }
-      allStrapiMainSlide {
-        nodes {
-          id
-          Header
-          Image {
+      strapiHomepage {
+        Slider {
+          Title
+          Subtitle
+          Cover {
             localFile {
               childImageSharp {
                 gatsbyImageData(
@@ -43,25 +26,33 @@ const IndexPage = () => {
               }
             }
           }
-          Description
         }
-      }
-      strapiMainpage {
-        Header
-        Text {
-          data {
-            Text
+        About {
+          Title
+          Text
+        }
+        News {
+          Title
+          Text
+          Cover {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
         }
       }
     }
   `)
-  console.log(allStrapiNew);
+  
+  console.log(strapiHomepage)
+
   return (
     <Layout>
       <div className="block">
         <Carousel 
-            elems = {allStrapiMainSlide.nodes}
+            elems = {strapiHomepage.Slider}
             settings = {{
               // https://react-slick.neostack.com/docs/api
               dots: true,
@@ -77,14 +68,14 @@ const IndexPage = () => {
             }
         />
         <div className="block__text-wrapper">
-          <h1 className="block__header-about">{strapiMainpage.Header}</h1>
-          <p className="block__text-about">{strapiMainpage.Text.data.Text}</p>
+          <h1 className="block__header-about">{strapiHomepage.About.Title}</h1>
+          <p className="block__text-about">{strapiHomepage.About.Text}</p>
         </div>
         <div class="heading_news">
           НОВОСТИ
         </div>
         <div class="main_block-news">
-          {allStrapiNew.nodes.map((post) => (
+          {strapiHomepage.News.map((post) => (
             <NewsCard NewsData={post}/>
           ))}
         </div>

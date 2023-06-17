@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "trainings",
+  "info": {
+    "singularName": "training",
+    "pluralName": "trainings",
+    "displayName": "Обучение",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Section": {
+      "displayName": "Section",
+      "type": "component",
+      "repeatable": true,
+      "component": "training.section",
+      "required": true
+    },
+    "Slide": {
+      "displayName": "Slide",
+      "type": "component",
+      "repeatable": false,
+      "component": "training.slide"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Главная",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Slider": {
+      "displayName": "Slider",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.slider",
+      "required": true
+    },
+    "About": {
+      "displayName": "About",
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.about",
+      "required": true
+    },
+    "News": {
+      "displayName": "News",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.news",
+      "required": true
+    }
+  }
+}

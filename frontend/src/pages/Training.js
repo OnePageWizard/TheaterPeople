@@ -1,44 +1,75 @@
 import React, { useState } from 'react'
 import Layout from '../components/Layout/Layout'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { useStaticQuery, graphql } from "gatsby"
 
 
 import './Training.scss'
 
 const Training = () => {
-  const [image, setImage] = useState([])
+  const { strapiTraining } = useStaticQuery(graphql`
+    {
+      strapiTraining {
+        Slide {
+          Title
+          Subtitle
+          Cover {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  quality: 100
+                  breakpoints: [750, 1000, 1366, 1920]
+                  aspectRatio: 1.7
+                  placeholder: BLURRED
+                  transformOptions: { cropFocus: CENTER }
+                )
+              }
+            }
+          }
+        }
+        Section {
+          Title
+          Text
+          Images {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Layout>
       <div className='training__wrapper'>
         <div className='training__image'>
-          <GatsbyImage className='image' image={"#"} alt='#'></GatsbyImage>
-          <span className='title'>dfgdfgdfg dfgf</span>
-          <span className='about'>dfgdfsfg dfhs gfh sdfdfdfsd</span>
+          <GatsbyImage 
+            className='image' 
+            image={getImage(strapiTraining.Slide.Cover?.localFile)} 
+            alt='#'>
+          </GatsbyImage>
+          <span className='title'>{strapiTraining.Slide.Title}</span>
+          <span className='about'>{strapiTraining.Slide.Subtitle}</span>
         </div>
         <div className='training__buttons'>
           <button className='child'>Дети</button>
           <button className='teen'>Подростки</button>
           <button className='adult'>Взрослые</button>
         </div>
-        <div className='training__content'>
-          <div className='training__content__ages'>
-            <div className='training__content__title'>Дети</div>
-            <span className='training__content__text'>Существуют две основные трактовки понятия «текст»: имманентная (расширенная, философски нагруженная) и репрезентативная (более частная). Имманентный подход подразумевает отношение к тексту как к автономной реальности, нацеленность на выявление его внутренней структуры. Репрезентативный — рассмотрение текста как особой формы представления информации о внешней тексту действительности.</span>
-          </div>
-          <div className='training__content__ages'>
-            <div className='training__content__title'>Подростки</div>
-            <span className='training__content__text'>Существуют две основные трактовки понятия «текст»: имманентная (расширенная, философски нагруженная) и репрезентативная (более частная). Имманентный подход подразумевает отношение к тексту как к автономной реальности, нацеленность на выявление его внутренней структуры. Репрезентативный — рассмотрение текста как особой формы представления информации о внешней тексту действительности.</span>
-            <div className='training__content__image'>
-                {image.map((img) => { return(<GatsbyImage image={img.src} alt='#' className={'training__content__image__' + image.indexOf(img)}/>)})}
-              <div className='training__content__image__7'/>
-            </div>
-          </div>
-          <div className='training__content__ages'>
-            <div className='training__content__title'>Взрослые</div>
-            <span className='training__content__text'>Существуют две основные трактовки понятия «текст»: имманентная (расширенная, философски нагруженная) и репрезентативная (более частная). Имманентный подход подразумевает отношение к тексту как к автономной реальности, нацеленность на выявление его внутренней структуры. Репрезентативный — рассмотрение текста как особой формы представления информации о внешней тексту действительности.</span>
-            <div className='training__content__image'> </div>
-          </div>
-        </div>
+        {
+          strapiTraining.Section.map((elem) => { 
+            return(
+              <div className='training__content__ages'>
+                <div className='training__content__title'>{elem.Title}</div>
+                <span className='training__content__text'>{elem.Text}</span>
+              </div>
+            )
+          }
+          )
+        }
       </div>
     </Layout>
   )

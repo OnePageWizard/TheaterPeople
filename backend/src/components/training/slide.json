@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_training_slides",
+  "info": {
+    "displayName": "Slide"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "Cover": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

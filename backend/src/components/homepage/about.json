@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_homepage_abouts",
+  "info": {
+    "displayName": "About"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Text": {
+      "type": "text"
+    }
+  }
+}

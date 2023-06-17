@@ -11,17 +11,17 @@ const NewsCard = ({NewsData}) => {
         <div className="news-card" onClick={() => setNewsActive(!newsActive)}>
           <GatsbyImage 
             className="image-news"
-            image={getImage(NewsData.Image?.localFile)}
+            image={getImage(NewsData.Cover?.localFile)}
             alt=""
           />
           <div className="block-text-news">
-              <span className="news-header" id="Header">{NewsData.Header}</span>
+              <span className="news-header" id="Header">{NewsData.Title}</span>
               <span className="news-more">Читать подробнее...</span>
           </div>
         </div>
         <CSSTransition in={newsActive} timeout={700} classNames={"alert"} unmountOnExit>
           <div className="about-wrapper">
-            <span className="about-news" id="ab-news">{NewsData.Text.data.Text}</span>
+            <span className="about-news" id="ab-news">{NewsData.Text}</span>
           </div>
         </CSSTransition>
       </div>

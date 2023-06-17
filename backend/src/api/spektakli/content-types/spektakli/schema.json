@@ -40,11 +40,6 @@
       "default": "Краткое описание",
       "required": true
     },
-    "UID": {
-      "type": "uid",
-      "default": "0",
-      "required": true
-    },
     "Media": {
       "type": "media",
       "multiple": true,

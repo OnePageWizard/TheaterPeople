@@ -13,20 +13,6 @@ module.exports = {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
         collectionTypes: [
-          "new",
-          {
-            singularName: "main-slide",
-            queryParams: {
-              publicationState:
-                process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
-              populate: {
-                Image: "*",
-                blocks: {
-                  populate: "*",
-                },
-              },
-            },
-          },
           {
             singularName: "spektakli",
             queryParams: {
@@ -35,27 +21,27 @@ module.exports = {
               populate: {
                 Cover: "*",
                 Media: "*",
-                blocks: {
-                  populate: "*",
-                },
-              },
-            },
-          },
-          {
-            singularName: "obuchenie",
-            queryParams: {
-              publicationState:
-                process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
-              populate: {
-                Image: "*",
-                blocks: {
-                  populate: "*",
-                },
               },
             },
           },
         ],
-        singleTypes: ["mainpage", 
+        singleTypes: [
+          {
+            singularName: "homepage",
+            queryParams: {
+              populate: {
+                Slider: {
+                  populate: "*"
+                },
+                About: {
+                  populate: "*"
+                },
+                News: {
+                  populate: "*"
+                },
+              },
+            },
+          },
           {
             singularName: "afisha",
             queryParams: {
@@ -65,6 +51,19 @@ module.exports = {
                   Card: {
                     populate: "*",
                   }
+                },
+              },
+            },
+          },
+          {
+            singularName: "training",
+            queryParams: {
+              populate: {
+                Slide: {
+                  populate: "*"
+                },
+                Section: {
+                  populate: "*"
                 },
               },
             },

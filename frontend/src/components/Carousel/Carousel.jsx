@@ -13,13 +13,12 @@ const Carousel = ({ elems, settings }) => {
           <div>
             <GatsbyImage
               className="slider-post"
-              image={getImage(elem.Image?.localFile)}
+              image={getImage(elem.Cover?.localFile)}
               alt=""
             />
-            {/* <img src={getImage(elem.Image?.localFile)} /> */}
             <div className="slider__text">
-              <div className="slider__header">{elem.Header}</div>
-              <div className="slider__header-about">{elem.Description}</div>
+              <div className="slider__header">{elem.Title}</div>
+              <div className="slider__header-about">{elem.Subtitle}</div>
             </div>
           </div>
         ))}
