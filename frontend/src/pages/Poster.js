@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Layout from "../components/Layout/Layout"
 import PosterCard from '../components/PosterCard/PosterCard'
 import { useStaticQuery, graphql } from 'gatsby'
