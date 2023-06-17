@@ -5,7 +5,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import './Training.scss'
 
 const Training = () => {
-
   const { strapiTraining } = useStaticQuery(graphql`
     {
       strapiTraining {
@@ -35,8 +34,11 @@ const Training = () => {
                 gatsbyImageData
               }
             }
+          }
         }
-`)
+      }
+    }
+  `)
 
   const [isActiveChild, setIsActiveChild] = useState(false);
   const [isActiveTeen, setIsActiveTeen] = useState(false);
@@ -82,16 +84,16 @@ const Training = () => {
         </div>
         <div className='training__content'>
           <div className='training__content__ages'  style={{overflow: isActiveChild ? 'visible' : 'hidden', opacity: isActiveChild ? '1' : '0', height: isActiveChild ? 'auto' : '0', transition: ' 1s'}}>
-            <div className='training__content__title'>Дети</div>
-            <span className='training__content__text'>{allStrapiObuchenie.nodes[0].Text.data.Text}</span>
+            <div className='training__content__title'>{strapiTraining.Section[0].Title}</div>
+            <span className='training__content__text'>{strapiTraining.Section[0].Text}</span>
           </div>
           <div className='training__content__ages'  style={{overflow: isActiveTeen ? 'visible' : 'hidden', opacity: isActiveTeen ? '1' : '0', height: isActiveTeen ? 'auto' : '0', transition: 'all 1s'}}>
-            <div className='training__content__title'>Подростки</div>
-            <span className='training__content__text'>{allStrapiObuchenie.nodes[0].Text.data.Text}</span>
+          <div className='training__content__title'>{strapiTraining.Section[1].Title}</div>
+            <span className='training__content__text'>{strapiTraining.Section[1].Text}</span>
           </div>
           <div className='training__content__ages'  style={{overflow: isActiveAdult ? 'visible' : 'hidden', opacity: isActiveAdult ? '1' : '0', height: isActiveAdult ? 'auto' : '0', transition: 'all 1s'}}>
-            <div className='training__content__title'>Взрослые</div>
-            <span className='training__content__text'>Существуют две основные трактовки понятия «текст»: имманентная (расширенная, философски нагруженная) и репрезентативная (более частная). Имманентный подход подразумевает отношение к тексту как к автономной реальности, нацеленность на выявление его внутренней структуры. Репрезентативный — рассмотрение текста как особой формы представления информации о внешней тексту действительности.</span>
+            <div className='training__content__title'>{strapiTraining.Section[2].Title}</div>
+            <span className='training__content__text'>{strapiTraining.Section[2].Text}</span>
           </div>
         </div>
       </div>
