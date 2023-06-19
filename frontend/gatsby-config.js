@@ -21,6 +21,7 @@ module.exports = {
               populate: {
                 Cover: "*",
                 Media: "*",
+                Description: "*",
               },
             },
           },
@@ -82,5 +83,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
+    "gatsby-transformer-remark",
   ],
 }

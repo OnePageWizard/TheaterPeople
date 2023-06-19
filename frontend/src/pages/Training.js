@@ -2,7 +2,15 @@ import React, { useState } from 'react'
 import Layout from '../components/Layout/Layout'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { useStaticQuery, graphql } from "gatsby"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper';
+
+import 'swiper/scss';
+import "swiper/scss/pagination";
+import "swiper/scss/navigation";
+import './TrainingSlider.scss'
 import './Training.scss'
+
 
 const Training = () => {
   const { strapiTraining } = useStaticQuery(graphql`
@@ -38,11 +46,12 @@ const Training = () => {
         }
       }
     }
-  `)
+    `)
 
   const [isActiveChild, setIsActiveChild] = useState(false);
   const [isActiveTeen, setIsActiveTeen] = useState(false);
   const [isActiveAdult, setIsActiveAdult] = useState(false);
+  const isActive = [isActiveChild, isActiveTeen, isActiveAdult];
   
   const handleClick = (el) => {
     switch (el)
@@ -65,6 +74,7 @@ const Training = () => {
     }
   };
 
+  console.log('-----------> strapiTraining', strapiTraining);
   return (
     <Layout>
       <div className='training__wrapper'>
@@ -82,20 +92,71 @@ const Training = () => {
           <button className='teen' onClick={() => handleClick(2)}> Подростки </button>
           <button className='adult' onClick={() => handleClick(3)}> Взрослые </button>
         </div>
-        <div className='training__content'>
-          <div className='training__content__ages'  style={{overflow: isActiveChild ? 'visible' : 'hidden', opacity: isActiveChild ? '1' : '0', height: isActiveChild ? 'auto' : '0', transition: ' 1s'}}>
-            <div className='training__content__title'>{strapiTraining.Section[0].Title}</div>
-            <span className='training__content__text'>{strapiTraining.Section[0].Text}</span>
-          </div>
-          <div className='training__content__ages'  style={{overflow: isActiveTeen ? 'visible' : 'hidden', opacity: isActiveTeen ? '1' : '0', height: isActiveTeen ? 'auto' : '0', transition: 'all 1s'}}>
-          <div className='training__content__title'>{strapiTraining.Section[1].Title}</div>
-            <span className='training__content__text'>{strapiTraining.Section[1].Text}</span>
-          </div>
-          <div className='training__content__ages'  style={{overflow: isActiveAdult ? 'visible' : 'hidden', opacity: isActiveAdult ? '1' : '0', height: isActiveAdult ? 'auto' : '0', transition: 'all 1s'}}>
-            <div className='training__content__title'>{strapiTraining.Section[2].Title}</div>
-            <span className='training__content__text'>{strapiTraining.Section[2].Text}</span>
-          </div>
-        </div>
+        {strapiTraining.Section.map((el) => { 
+          
+          let index = null;   
+
+          switch (el.Title[0])
+          {
+            case 'Д':
+              index = 0;
+              break;
+            case 'П':
+              index = 1;
+              break;
+            case 'В':
+              index = 2;
+              break;
+          }
+          
+          let countSlide = null;
+
+          if (el.Images !== null) {
+            if (el.Images.length >= 8) {
+              countSlide = 4;
+            }
+            else if(el.Images.length >= 6){
+              countSlide = 3;
+            }
+            else if(el.Images.length >= 4) {
+              countSlide = 2;
+            }
+            else {
+              countSlide = 1;
+            }
+          }
+
+          
+          return(         
+          <div className='training__content__ages'  style={{overflow: isActive[index] ? 'visible' : 'hidden', opacity: isActive[index] ? '1' : '0', height: isActive[index] ? '1000px' : '0', transition: 'all 1s'}}>
+            <div className='training__content__title'>{el.Title}</div>
+            <span className='training__content__text'>{el.Text}</span>
+            {el.Images === null ? 
+            (
+            <></>
+            ) : (
+            <>
+              <Swiper
+                modules={[Pagination, Navigation ]}
+                spaceBetween={8}
+                slidesPerView={countSlide}
+                navigation
+                loop={true}
+                pagination={{ clickable: true }}
+              >
+              {el.Images.map((img) => (
+                <SwiperSlide>              
+                  <GatsbyImage
+                  className="swiper-card"
+                  image={getImage(img?.localFile)}
+                  alt=""
+                />
+                </SwiperSlide>
+              ))}
+              </Swiper>
+            </>)}
+          </div>)
+        })}
       </div>
     </Layout>
   )

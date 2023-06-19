@@ -58,7 +58,8 @@
   align-items: center;
   justify-content: center;
   height: 60px;
-  width: calc(100% - 212px);
+  max-width: 1296px;
+  width: calc(100vw - 212px);
 
   button {
     scale: (100%); 
@@ -136,4 +137,11 @@
   }
 }
 
+.swiper-card{
+  height: 306px;
+  object-fit: cover;
+}
 
+.footer{
+  margin-top: 20px;
+}

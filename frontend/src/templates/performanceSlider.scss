@@ -1,27 +1,27 @@
 .swiper-button-prev,
 .swiper-button-next {
-  color: #7EB12A;
+  color: #7eb12a;
   top: 10px;
   width: 50px;
   height: 100%;
   filter: drop-shadow(0px 5px 2px rgba(0, 0, 0, 0.5));
 }
 
-.swiper-pagination{
+.swiper-pagination {
   position: inherit;
   margin-top: 10px;
 }
 
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
   border-radius: 10px;
   width: 50px;
-  background: #7EB12A;
+  background: #7eb12a;
 }
 
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
   &:after {
-    content: 'prev';
+    content: "prev";
   }
   left: 0;
   right: auto;
@@ -29,7 +29,7 @@
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
   &:after {
-    content: 'next';
+    content: "next";
   }
   right: 0px;
   left: auto;
