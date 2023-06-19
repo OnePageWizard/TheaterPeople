@@ -50,7 +50,7 @@ const performancePage = ({ data }) => {
                   </div>
               </div>
               <Swiper
-                modules={[Pagination, Navigation ]}
+                modules={[Pagination, Navigation]}
                 spaceBetween={8}
                 slidesPerView={4}
                 navigation

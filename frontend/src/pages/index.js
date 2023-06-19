@@ -45,8 +45,6 @@ const IndexPage = () => {
       }
     }
   `)
-  
-  console.log(strapiHomepage)
 
   return (
     <Layout>
