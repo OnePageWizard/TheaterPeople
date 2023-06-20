@@ -1,6 +1,8 @@
 import React, {useState} from "react"
 import { Link } from "gatsby"
 import "./Header.scss"
+import VK from "./../../images/VK.svg"
+import INST from "./../../images/INST.svg"
 
 import LOGO from "./../../images/logo.svg"
 
@@ -31,8 +33,10 @@ function Header({ HeadActive=false }) {
                 РЕПЕРТУАР
               </Link>
             </li>
-            <li></li>
-            <li></li>
+            <div className="header__link-social">
+              <img src={INST} alt="#" />
+              <img src={VK} alt="#" />
+            </div> 
           </ul>
         </div>  
       </nav>
@@ -89,11 +93,6 @@ function Header({ HeadActive=false }) {
                 </Link>
               </li>
             </ul>
-
-            {/* <div className="header__content__info">
-              <img src={INST} alt="#" />
-              <img src={VK} alt="#" />
-            </div> */}
           </div>
         </div>
       </header>

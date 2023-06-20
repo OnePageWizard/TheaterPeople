@@ -19,17 +19,17 @@
   flex-direction: column;
 }
 
+.image{
+  width: 100%;
+  height: 100vh;
+}
+
 .training__image {
   position: relative;
   background-color:black;
-  width: 100%;
-  min-height: 100vh;
   margin-bottom: 50px;
 
   .title {
-    position: absolute;
-    left: 312px;
-    top: 757px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -39,10 +39,15 @@
     margin-bottom: 10px;
   }
 
-  .about {
+  .training__text{
     position: absolute;
-    left: 312px;
-    top: 800px;
+    padding: 0 calc(100%/7);
+    bottom: 120px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about {
     font-family: 'Zen Kaku Gothic New';
     font-style: normal;
     font-weight: 400;

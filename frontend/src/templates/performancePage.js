@@ -18,6 +18,7 @@ const performancePage = ({ data }) => {
     <Layout>
       <div class="main-content">
           <div class="head-block">
+              <div className="background-black"></div>
               <GatsbyImage
                 className="head-block__image"
                 image={getImage(data.strapiSpektakli.Cover?.localFile)}

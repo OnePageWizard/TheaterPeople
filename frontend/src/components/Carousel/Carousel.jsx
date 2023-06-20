@@ -11,6 +11,7 @@ const Carousel = ({ elems, settings }) => {
       <Slider {...settings}>
         {elems.map(elem => (
           <div>
+            <div className="slider-post-background"></div>
             <GatsbyImage
               className="slider-post"
               image={getImage(elem.Cover?.localFile)}

@@ -19,8 +19,18 @@
 .head-block__image{
   max-height: 100vh;
   max-width: 100%;
+  height: 100vh;
   width: 100vw;
   position: relative;
+}
+
+
+.background-black{
+  background-color: rgba(0, 0, 0, 0.25);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
 }
 
 .head-block-name{
@@ -30,6 +40,7 @@
   padding: 0 calc(100% / 13);
   bottom: calc(100vh - 80vh);
   color: #FFFFFF;
+  z-index: 3;
 }
 
 .name-age{

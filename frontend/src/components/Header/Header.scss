@@ -30,6 +30,19 @@ $white: #FDF4E3;
     filter: drop-shadow(0px 4px 25px rgba(0, 0, 0, 0.25));
     z-index: 999999999;
   }
+  &__link-social{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    img + img {
+      margin-left: 10%;
+    }
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
   &__wrapper{
     top: 0;
     left: 0;

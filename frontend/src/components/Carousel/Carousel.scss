@@ -112,6 +112,7 @@
     color: #ffffff;
     padding: 0 0 0 calc(100vw - 90vw);
     bottom: 250px;
+    z-index: 13;
   }
 
   &__header{
@@ -160,4 +161,12 @@
       flex-wrap: wrap;
     }
   }
+}
+
+.slider-post-background {
+  background-color: rgba(0, 0, 0, 0.25);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
 }

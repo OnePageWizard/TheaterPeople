@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import NewsCard from "../components/NewsCard/NewsCard"
 
 import "./index.scss"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const IndexPage = () => {
   const { strapiHomepage } = useStaticQuery(graphql`
@@ -68,6 +69,18 @@ const IndexPage = () => {
         <div className="block__text-wrapper">
           <h1 className="block__header-about">{strapiHomepage.About.Title}</h1>
           <p className="block__text-about">{strapiHomepage.About.Text}</p>
+          <div className="block__image-about">
+            <GatsbyImage 
+              className="block__image-about-img"
+              image={getImage(strapiHomepage.News[0].Cover?.localFile)}
+              alt=""
+            />
+            <GatsbyImage 
+              className="block__image-about-img"
+              image={getImage(strapiHomepage.News[1].Cover?.localFile)}
+              alt=""
+            />
+          </div>
         </div>
         <div className="heading_news">
           <p>НОВОСТИ</p>
