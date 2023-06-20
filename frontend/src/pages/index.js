@@ -69,8 +69,8 @@ const IndexPage = () => {
           <h1 className="block__header-about">{strapiHomepage.About.Title}</h1>
           <p className="block__text-about">{strapiHomepage.About.Text}</p>
         </div>
-        <div class="heading_news">
-          НОВОСТИ
+        <div className="heading_news">
+          <p>НОВОСТИ</p>
         </div>
         <div class="main_block-news">
           {strapiHomepage.News.map((post) => (

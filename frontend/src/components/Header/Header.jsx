@@ -36,9 +36,15 @@ function Header({ HeadActive=false }) {
           </ul>
         </div>  
       </nav>
-      <header className={HeadActive ? "header__active" : "header"} style={HeadActive ? show ? {filter: "none"} : {filter: "drop-shadow(0px 4px 25px rgba(0, 0, 0, 0.25))"} : {}}>
+      <header 
+        className={HeadActive ? "header__active" : "header"} 
+        style={HeadActive ? show ? {filter: "none"} : {filter: "drop-shadow(0px 4px 25px rgba(0, 0, 0, 0.25))"} : {}}
+      >
         <div className="header__wrapper">
-          <div className="header__logo">
+          <div 
+            className="header__logo"
+            style={show ? {position: "fixed", left: "calc(100% / 13)"} : {}}
+          >
             <Link to="/">
               <img src={LOGO} alt="#" className="header__logo__img" />
             </Link>

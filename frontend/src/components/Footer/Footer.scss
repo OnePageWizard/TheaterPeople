@@ -1,5 +1,17 @@
 $white: #FDF4E3;
 
+@mixin desktop{
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
+@mixin mobile{
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
 @mixin text-title () {
   font-family: 'Inter';
   font-style: normal;
@@ -20,71 +32,135 @@ $white: #FDF4E3;
 }
 
 .footer{
-  padding-left: calc(100% / 13);
-  padding-right: calc(100% / 13);
-  height: 126px;
   filter: drop-shadow(0px -4px 25px rgba(0, 0, 0, 0.25));
   background-color: #262625;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include desktop(){
+    padding-left: calc(100% / 13);
+    padding-right: calc(100% / 13);
+    height: 126px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @include mobile(){ 
+    height: 350px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .footer__adr-phone{
   display: flex;
-  &__adress{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    &__title{
-      @include text-title();
-      margin-bottom: 10px;
+  @include desktop(){
+    &__adress{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      &__title{
+        @include text-title();
+        margin-bottom: 10px;
+      }
+      &__text{
+        @include text();
+      }
     }
-    &__text{
-      @include text();
+    &__phone{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-left: 36px;
+      &__title{
+        @include text-title();
+      }
+      &__text{
+        @include text();
+      }
     }
   }
-  &__phone{
-    display: flex;
+
+  @include mobile() {
     flex-direction: column;
-    gap: 15px;
-    margin-left: 36px;
-    &__title{
-      @include text-title();
+    &__adress{
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      &__title{
+        @include text-title();
+        margin-bottom: 10px;
+      }
+      &__text{
+        @include text();
+      }
+      margin-bottom: 45px;
     }
-    &__text{
-      @include text();
+    &__phone{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 15px;
+      &__title{
+        @include text-title();
+      }
+      &__text{
+        @include text();
+      }
+      margin-bottom: 45px;
     }
   }
 }
 
 .footer__block{
   display: flex;
-  &__navbar{
-    display: flex;
-    color: $white;
+  @include desktop() {
+    &__navbar{
+      display: flex;
+      color: $white;
+    }
+    &__info{
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      width: 122px;
+      justify-content: space-between;
+      margin-left: 75px; 
+      &__img{
+        width: 36px;
+        height: 36px;
+        margin-bottom: 0px;
+      }
+      img{
+        transition: transform .6s;
+        transform: scale(100%);
+      }
+      img:hover{
+        transform: scale(140%);
+        transition: transform .6s;
+      }
+    }
   }
-  &__info{
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    width: 122px;
-    justify-content: space-between;
-    margin-left: 75px; 
-    .img{
-      width: 36px;
-      height: 36px;
-      margin-bottom: 0px;
-    }
-    img{
-      transition: transform .6s;
-      transform: scale(100%);
-    }
-    img:hover{
-      transform: scale(140%);
-      transition: transform .6s;
+
+  @include mobile() {
+    &__info{
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      width: 100vw;
+      justify-content: center;
+      &__img{
+        width: 56px;
+        height: 56px;
+        margin-bottom: 0px;
+      }
+
+      img + img {
+        margin-left: 20%;
+      }
     }
   }
+
   li{
     margin-bottom: 0px;
     cursor: pointer;

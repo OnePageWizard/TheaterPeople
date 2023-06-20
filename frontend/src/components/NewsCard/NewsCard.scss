@@ -1,22 +1,17 @@
-.block_news{
-  width: 100%;
+@mixin desktop {
+  @media (min-width: 769px) {
+    @content;
+  }
 }
 
-.heading_news{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-  height: 60px;
-  background-color: #7EB12A;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 100%;
-  display: flex;
-  align-items: center;
-  color: #FDF4E3;
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+.block_news{
+  width: 100%;
 }
 
 .news-card-wrapper{
@@ -30,7 +25,7 @@
 
 .news-card{
   z-index: 2;
-  max-width: 1289px;
+  max-width: 1600px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -41,7 +36,7 @@
 }
 
 .image-news{
-  max-width: 1289px;
+  max-width: 1600px;
   max-height: 600px;
   object-fit: cover;
   width: 100%;
@@ -50,19 +45,33 @@
 }
 
 .block-text-news{
-  position: absolute;
-  left: 70px;
-  bottom: 70px;
+  @include desktop() {
+    position: absolute;
+    left: 70px;
+    bottom: 70px;    
+  }
+
+  @include mobile() {
+    position: absolute;
+    left: 10%;
+    bottom: 50px;    
+  }
 }
 
 .news-header{
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
-  font-size: 36px;
-  display: flex;
   align-items: center;
-  color: #FDF4E3;
+  color: #FDF4E3;    
+  display: flex;
+  @include desktop() {
+  font-size: 36px;
+  }
+
+  @include mobile() { 
+    font-size: 28px;
+  }
 }
 
 .news-more{
@@ -85,12 +94,19 @@
 }
 
 .about-news{
+  @include desktop() {
+    font-size: 20px;
+  }
+
+  @include mobile() {
+    font-size: 16px;
+  }
+
   margin-top: 30px;
   max-width: 1124px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 300;
-  font-size: 20px;
   text-align: justify;
   color: #FDF4E3;
   white-space: pre-line;
