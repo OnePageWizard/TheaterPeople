@@ -82,9 +82,9 @@ const Training = () => {
             image={getImage(strapiTraining.Slide.Cover?.localFile)} 
             alt='#'>
           </GatsbyImage>
-          <div className="training__text">
-            <span className='title'>{strapiTraining.Slide.Title}</span>
-            <span className='about'>{strapiTraining.Slide.Subtitle}</span>
+          <div class="block-name">
+            <span className='block-name__title'>{strapiTraining.Slide.Title}</span>
+            <span className='block-name__about'>{strapiTraining.Slide.Subtitle}</span>
           </div>
         </div>
         <div className='training__buttons'>

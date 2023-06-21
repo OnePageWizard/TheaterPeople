@@ -25,35 +25,40 @@
 }
 
 .training__image {
+  height: 100%;
+  max-width: 100%;
+  width: 100vw;
   position: relative;
-  background-color:black;
   margin-bottom: 50px;
 
-  .title {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 75%;
-    color: #FDF4E3;
-    margin-bottom: 10px;
-  }
-
-  .training__text{
+  .block-name{
     position: absolute;
-    padding: 0 calc(100%/7);
-    bottom: 120px;
     display: flex;
     flex-direction: column;
-  }
-
-  .about {
-    font-family: 'Zen Kaku Gothic New';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 115%;
+    // padding: 0 calc(100% / 13);
+    // bottom: calc(100vh - 80vh);
+    padding: 0 calc(100%/7);
+    bottom: 120px;
     color: #FFFFFF;
+    
+    &__title {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 75%;
+      color: #FDF4E3;
+      margin-bottom: 10px;
+    }
+  
+    &__about {
+      font-family: 'Zen Kaku Gothic New';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 115%;
+      color: #FFFFFF;
+    }
   }
 }
 
