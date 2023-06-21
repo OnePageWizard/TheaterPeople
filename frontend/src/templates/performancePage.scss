@@ -4,6 +4,12 @@
   }
 }
 
+@mixin mobilemini {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media (min-width: 1024px) {
     @content;
@@ -28,7 +34,7 @@
 .background-black{
   background-color: rgba(0, 0, 0, 0.25);
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: 2;
 }
@@ -86,10 +92,16 @@
 .bottom-block{
   background-color: #262625;
   padding: 0 calc(100% / 13);
+  @include mobilemini() { 
+    padding: 0;
+  }
 }
 
 .block-text{
   display: flex;
+  @include mobilemini() {
+    flex-direction: column;
+  }
 }
 
 .left-block{
@@ -101,6 +113,9 @@
 }
 
 .block-premier{
+  @include mobilemini() {
+    width: 100vw;
+  }
   display: flex;
   flex-direction: column;
   background-color: #7EB12A;
@@ -130,6 +145,9 @@
 }
 
 .right-block{
+  @include mobilemini() {
+    padding: 25px 0 0 0;
+  }
   padding: 25px 0 0 25px;
   display: flex;
   flex-direction: column;
