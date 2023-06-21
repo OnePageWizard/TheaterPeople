@@ -19,7 +19,7 @@ const NewsCard = ({NewsData}) => {
           </div>
         </div>
           <div className={newsActive ? "about-wrapper about-active" : "about-wrapper about-close"}>
-            <span className="about-news" id="ab-news">{NewsData.Text}</span>
+            <span className="about-news" id="ab-news" dangerouslySetInnerHTML={{ __html: NewsData.Text.data.childMarkdownRemark.html }}/>
           </div>
       </div>
   )

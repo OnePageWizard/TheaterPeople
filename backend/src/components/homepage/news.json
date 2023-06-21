@@ -10,10 +10,6 @@
       "type": "string",
       "required": true
     },
-    "Text": {
-      "type": "text",
-      "required": true
-    },
     "Cover": {
       "type": "media",
       "multiple": false,
@@ -21,6 +17,10 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "Text": {
+      "type": "richtext",
+      "required": true
     }
   }
 }

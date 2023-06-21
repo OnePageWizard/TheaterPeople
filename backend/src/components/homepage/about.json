@@ -1,7 +1,8 @@
 {
   "collectionName": "components_homepage_abouts",
   "info": {
-    "displayName": "About"
+    "displayName": "About",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,8 +10,17 @@
       "type": "string",
       "required": true
     },
+    "Images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "Text": {
-      "type": "text"
+      "type": "richtext",
+      "required": true
     }
   }
 }

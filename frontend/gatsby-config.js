@@ -35,9 +35,11 @@ module.exports = {
                   populate: "*"
                 },
                 About: {
+                  Text: "*",
                   populate: "*"
                 },
                 News: {
+                  Text: "*",
                   populate: "*"
                 },
               },

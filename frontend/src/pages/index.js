@@ -19,7 +19,6 @@ const IndexPage = () => {
               childImageSharp {
                 gatsbyImageData(
                   quality: 100
-                  breakpoints: [750, 1000, 1366, 1920]
                   aspectRatio: 1.7
                   placeholder: BLURRED
                   transformOptions: { cropFocus: CENTER }
@@ -30,15 +29,42 @@ const IndexPage = () => {
         }
         About {
           Title
-          Text
+          Text {
+            data {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
+          Images {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  aspectRatio: 1.7
+                  placeholder: BLURRED
+                  transformOptions: { cropFocus: CENTER }
+                )
+              }
+            }
+          }
         }
         News {
           Title
-          Text
+          Text {
+            data {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
           Cover {
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(
+                  aspectRatio: 1.7
+                  placeholder: BLURRED
+                  transformOptions: { cropFocus: CENTER }
+                )
               }
             }
           }
@@ -68,16 +94,16 @@ const IndexPage = () => {
         />
         <div className="block__text-wrapper">
           <h1 className="block__header-about">{strapiHomepage.About.Title}</h1>
-          <p className="block__text-about">{strapiHomepage.About.Text}</p>
+          <p className="block__text-about" dangerouslySetInnerHTML={{ __html: strapiHomepage.About.Text.data.childMarkdownRemark.html }}/>
           <div className="block__image-about">
             <GatsbyImage 
               className="block__image-about-img"
-              image={getImage(strapiHomepage.News[0].Cover?.localFile)}
+              image={getImage(strapiHomepage.About.Images[0]?.localFile)}
               alt=""
             />
             <GatsbyImage 
               className="block__image-about-img"
-              image={getImage(strapiHomepage.News[1].Cover?.localFile)}
+              image={getImage(strapiHomepage.About.Images[1]?.localFile)}
               alt=""
             />
           </div>
