@@ -1,3 +1,15 @@
+@mixin mobile {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
 .reportoire__wrapper{
   display: flex;
   justify-content: center;
@@ -6,11 +18,19 @@
   flex-wrap: wrap;
   gap: 20px 35px;
   max-width: 100%;
-  margin: 0 312px 50px 312px;
+  overflow: hidden;
+  padding: 0px 50px 50px 50px;
+  @include mobile() {
+    padding: 0 10px 10px 10px;
+  }
+  margin: 0;
   transition: .6s;
 }
 
-.reportoire__wrapper:hover{
-  margin-right: 292px;
-  transition: .6s;
+
+@include desktop() {
+  .reportoire__wrapper:hover{
+    padding-right: 20px;
+    transition: .6s;
+  }
 }

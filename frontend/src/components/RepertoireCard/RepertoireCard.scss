@@ -1,3 +1,15 @@
+@mixin mobile {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
 .cardContent {
   display: flex;
   flex-direction: column;
@@ -27,14 +39,15 @@
   }
 }
 
-.cardContent:hover .cardContent__image{
-  height: 330px;
-  width: 220px;
-  transition: width .6s,height .6s;
+@include desktop() {
+  .cardContent:hover .cardContent__image{
+    height: 330px;
+    width: 220px;
+    transition: width .6s,height .6s;
+  }
 }
 
 .cardContent:hover .cardContent__title{
-  max-width: 220px;
   font-size: 25px;
   color: #7EB12A;
   transition:.6s;

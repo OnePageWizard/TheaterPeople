@@ -167,9 +167,10 @@ $white: #FDF4E3;
       height: 100%;
       z-index: 999;
       &__navbar{
+        display: flex;
         color: $white;
         margin-bottom: 0px;
-        
+        align-items: center;
       }
       li{
         margin-bottom: 0px;
