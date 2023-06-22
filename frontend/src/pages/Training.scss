@@ -17,6 +17,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: auto;
 }
 
 .image{
@@ -35,12 +36,10 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    // padding: 0 calc(100% / 13);
-    // bottom: calc(100vh - 80vh);
     padding: 0 calc(100%/7);
     bottom: 120px;
     color: #FFFFFF;
-    
+
     &__title {
       font-family: 'Inter';
       font-style: normal;
@@ -63,6 +62,7 @@
 }
 
 .training__buttons {
+  position: relative;
   margin-bottom: 50px;
   display: flex;
   align-items: center;
@@ -116,7 +116,9 @@
   flex-direction: column;
   max-width: 1296px;
 
-  &__ages {
+  &__0,&__1,&__2 {
+    //position: absolute;
+    top: calc(100vh + 110px + 50px);
     max-width: 1296px;
     width: calc(100vw - 212px);
   }
@@ -145,6 +147,22 @@
     text-align: justify;
     color: #FFFFFF;
   }
+}
+
+.active{
+  z-index: 1;
+  //height: auto;
+  opacity: 1;
+  max-height: 3000px;
+  overflow: hidden;
+  transition: opacity 1s ease, max-height 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.close{
+  z-index: 0;
+  opacity: 0;
+  max-height: 0px;
+  overflow: hidden;
+  transition: opacity 1s ease-out, max-height 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .swiper-card{
