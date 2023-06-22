@@ -10,6 +10,7 @@ import 'swiper/scss';
 import "swiper/scss/pagination";
 import "swiper/scss/navigation";
 import "./performanceSlider.scss";
+import "./perfomanceMarkdown.scss";
 
 const performancePage = ({ data }) => {
   const currentMonth = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"]
@@ -47,7 +48,8 @@ const performancePage = ({ data }) => {
                   <div class="right-block">
                       <span class="about-header">О СПЕКТАКЛЕ</span>
                       <span class="about-perfomance">
-                          <div
+                          <div 
+                            className="about-perfomance__text"
                             dangerouslySetInnerHTML={{
                               __html: data.strapiSpektakli.Description.data.childMarkdownRemark.html,
                             }}

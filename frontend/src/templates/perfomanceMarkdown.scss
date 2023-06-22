@@ -1,0 +1,32 @@
+@mixin mobile { 
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+.about-perfomance__text{
+
+  @include mobile { 
+    text-align: start;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+  }
+
+  li { 
+    margin: 0;
+  }
+
+  blockquote { 
+    display: flex;
+    margin-left: 5px;
+  }
+
+  blockquote::before {
+    margin-right: 15px;
+    content: " ";
+    background-color: #ffffff;
+  }
+}
