@@ -112,6 +112,7 @@
 
   @include mobile() {
     font-size: 16px;
+    padding: 0 5px;
   }
   margin-top: 30px;
   font-family: 'Inter';
