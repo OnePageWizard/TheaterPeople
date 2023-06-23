@@ -49,7 +49,12 @@ const Training = () => {
   const [isActiveChild, setIsActiveChild] = useState(false);
   const [isActiveTeen, setIsActiveTeen] = useState(false);
   const [isActiveAdult, setIsActiveAdult] = useState(false);
+  const [pageWidth, setPageWidth] = useState(window.innerWidth);
   const isActive = [isActiveChild, isActiveTeen, isActiveAdult];
+  
+  window.addEventListener('resize', () => {
+    setPageWidth(window.innerWidth)
+  })
   
   const handleClick = (el) => {
     switch (el)
@@ -129,10 +134,10 @@ const Training = () => {
             let countSlide = null;
 
             if (el.Images !== null) {
-              if (el.Images.length >= 8) {
+              if (el.Images.length >= 8 & pageWidth > 1024) {
                 countSlide = 4;
               }
-              else if(el.Images.length >= 6){
+              else if(el.Images.length >= 6 & pageWidth > 1024){
                 countSlide = 3;
               }
               else if(el.Images.length >= 4) {
