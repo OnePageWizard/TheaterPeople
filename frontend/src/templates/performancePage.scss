@@ -146,7 +146,7 @@
 
 .right-block{
   @include mobilemini() {
-    padding: 25px 0 0 0;
+    padding: 25px 5px 0 5px;
   }
   padding: 25px 0 0 25px;
   display: flex;

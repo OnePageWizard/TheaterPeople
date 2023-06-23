@@ -1,17 +1,23 @@
+@mixin mobile { 
+  @media (max-width:1023px) {
+    @content;
+  }
+}
+
 .poster__wrapper{
   display: flex;
   justify-content: space-between;
   max-width: 1296px;
   margin-bottom: 10px;
   width: 100%;
-  height: 150px;
-  transition: height .6s;
+  min-height: 150px;
+  transition: min-height .6s, background-color .6s;
   background: rgba(0, 0, 0, 0.15);
 }
 .poster__wrapper:hover{
   background-color: rgba(0, 0, 0, 0.3);
-  height: 200px;
-  transition: height .6s, background-color .6s;
+  min-height: 200px;
+  transition: min-height .6s, background-color .6s;
 }
 
 .poster__date{
@@ -27,6 +33,9 @@
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
+    @include mobile() { 
+      font-size: 24px;
+    }
     color: #FDF4E3;
   }
 }
@@ -42,20 +51,26 @@
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
+    @include mobile() { 
+      font-size: 24px;
+    }
     display: flex;
     align-items: center;
     color: #FDF4E3;
   }
   &__about{
     max-width: 636px;
-    width: 100%;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 300;
     font-size: 24px;
+    @include mobile() {
+      font-size: 18px;
+    }
     color: #FDF4E3;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
   }
 }
 
@@ -68,6 +83,9 @@
     font-style: normal;
     font-weight: 300;
     font-size: 24px;
+    @include mobile() { 
+      font-size: 18px;
+    }
     display: flex;
     align-items: center;
     text-align: center;
@@ -82,6 +100,9 @@
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
+    @include mobile() { 
+      font-size: 18px;
+    }
     display: flex;
     align-items: center; 
     color: #7EB12A;
