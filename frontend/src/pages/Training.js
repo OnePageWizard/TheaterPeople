@@ -33,7 +33,17 @@ const Training = () => {
         }
         Section {
           Title
-          Text
+          Text {
+            data {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
+          Video {
+            Header
+            URL
+          }
           Images {
             localFile {
               childImageSharp {
@@ -152,7 +162,33 @@ const Training = () => {
             return(         
             <div id = {`${index}`} className={isActive[index] ? `training__content__${index} active` : `training__content__${index} close`}>
               <div className='training__content__title'>{el.Title}</div>
-              <span className='training__content__text'>{el.Text}</span>
+              <span className='training__content__text' dangerouslySetInnerHTML={{ __html: el.Text.data.childMarkdownRemark.html}}/>
+              {el.Video === null ? 
+              (
+              <></>
+              ) : (
+              <>
+                {el.Video.map((video) => (
+                  <iframe
+                  width="560"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${video.URL}`}
+                  srcdoc={`<style>*{padding:0;margin:0;overflow:hidden}
+                  html,body{height:100%}
+                  img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}
+                  span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}
+                  </style>
+                  <a href=https://www.youtube.com/embed/${video.URL}?autoplay=1>
+                  <img src=https://img.youtube.com/vi/${video.URL}/hqdefault.jpg alt='${video.Header}'>
+                  <span>▶</span>
+                  </a>`}
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                  title={video.Header}>
+                </iframe>
+                ))}
+              </>)}
               {el.Images === null ? 
               (
               <></>
