@@ -1,5 +1,9 @@
 $white: #FDF4E3;
 
+html { 
+  font: 0 none;
+}
+
 @mixin desktop {
   @media (min-width: 1024px) {
     @content;
@@ -91,7 +95,6 @@ $white: #FDF4E3;
         text-transform: uppercase;
         width: 185px;
         margin: 0;
-        margin-top: 5px;
       }
     }
   }
