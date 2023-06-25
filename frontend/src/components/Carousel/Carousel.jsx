@@ -13,6 +13,7 @@ const Carousel = ({ elems, settings }) => {
           <div>
             <div className="slider-post-background"></div>
             <GatsbyImage
+              loading="eager"
               className="slider-post"
               image={getImage(elem.Cover?.localFile)}
               alt=""

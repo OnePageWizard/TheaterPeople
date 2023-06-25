@@ -108,7 +108,8 @@ const Training = () => {
     <Layout>
       <div className='training__wrapper'>
         <div className='training__image'>
-          <GatsbyImage 
+          <GatsbyImage
+            loading="eager"
             className='image' 
             image={getImage(strapiTraining.Slide.Cover?.localFile)} 
             alt='#'>
@@ -205,10 +206,11 @@ const Training = () => {
                 {el.Images.map((img) => (
                   <SwiperSlide>              
                     <GatsbyImage
-                    className="swiper-card"
-                    image={getImage(img?.localFile)}
-                    alt=""
-                  />
+                      loading="eager"
+                      className="swiper-card"
+                      image={getImage(img?.localFile)}
+                      alt=""
+                    />
                   </SwiperSlide>
                 ))}
                 </Swiper>

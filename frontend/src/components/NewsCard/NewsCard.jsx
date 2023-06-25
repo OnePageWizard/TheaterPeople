@@ -9,6 +9,7 @@ const NewsCard = ({NewsData}) => {
       <div>
         <div className="news-card" onClick={() => setNewsActive(!newsActive)}>
           <GatsbyImage 
+            loading="eager"
             className="image-news"
             image={getImage(NewsData.Cover?.localFile)}
             alt=""

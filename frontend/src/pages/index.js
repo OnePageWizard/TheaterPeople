@@ -97,11 +97,13 @@ const IndexPage = () => {
           <p className="block__text-about" dangerouslySetInnerHTML={{ __html: strapiHomepage.About.Text.data.childMarkdownRemark.html }}/>
           <div className="block__image-about">
             <GatsbyImage 
+              loading="eager"
               className="block__image-about-img"
               image={getImage(strapiHomepage.About.Images[0]?.localFile)}
               alt=""
             />
             <GatsbyImage 
+              loading="eager"
               className="block__image-about-img"
               image={getImage(strapiHomepage.About.Images[1]?.localFile)}
               alt=""
