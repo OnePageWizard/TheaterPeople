@@ -12,6 +12,7 @@ const RepertoireCard = ({ card }) => {
     >
       <div className="cardContent">
         <GatsbyImage
+          loading="eager"
           className="cardContent__image"
           image={getImage(card.Cover?.localFile)}
           alt=""

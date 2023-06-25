@@ -12,6 +12,7 @@ const Carousel = ({ elems, settings }) => {
         {elems.map(elem => (
           <div className="slider-wrapper-black">
             <GatsbyImage
+              loading="eager"
               className="slider-post"
               image={getImage(elem.Cover?.localFile)}
               alt=""

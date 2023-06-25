@@ -10,10 +10,6 @@
       "type": "string",
       "required": true
     },
-    "Text": {
-      "type": "text",
-      "required": true
-    },
     "Images": {
       "type": "media",
       "multiple": true,
@@ -21,6 +17,14 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "Text": {
+      "type": "richtext"
+    },
+    "Video": {
+      "type": "component",
+      "repeatable": true,
+      "component": "training.video"
     }
   }
 }
