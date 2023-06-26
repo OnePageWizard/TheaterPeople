@@ -5,9 +5,12 @@ import "./PosterCard.scss"
 const PosterCard = props => {
   return (
     <div className="poster__wrapper">
-      <div className="poster__date">
-        <span>{props.month}</span>
-        <span>{props.time}</span>
+      <div className="poster__dates">
+        <div className="poster__date">
+          <span>{props.month}</span>
+          <span>{props.time}</span>
+        </div>
+        <div className="poster__age-in-date"><span>{props.age}</span></div>
       </div>
       <div className="poster__name">
         <span className="poster__name__title">{props.title}</span>
