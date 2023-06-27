@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/Layout/Layout'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { useStaticQuery, graphql } from "gatsby"
@@ -73,6 +73,7 @@ const Training = () => {
         const container0 = document.getElementById('contentParent')
         const nowActive0 = document.getElementById(`${el}`)
         container0.insertBefore(nowActive0, container0.firstChild);
+
         setIsActiveTeen(false)
         setIsActiveAdult(false)
         setTimeout(() => {
@@ -83,6 +84,7 @@ const Training = () => {
         const container1 = document.getElementById('contentParent')
         const nowActive1 = document.getElementById(`${el}`)
         container1.insertBefore(nowActive1, container1.firstChild);
+
         setIsActiveChild(false)
         setIsActiveAdult(false)
         setTimeout(() => {
@@ -93,6 +95,7 @@ const Training = () => {
         const container2 = document.getElementById('contentParent')
         const nowActive2 = document.getElementById(`${el}`)
         container2.insertBefore(nowActive2, container2.firstChild);
+
         setIsActiveChild(false)
         setIsActiveTeen(false)
         setTimeout(() => {
@@ -120,9 +123,9 @@ const Training = () => {
           </div>
         </div>
         <div className='training__buttons'>
-          <button className='child' onClick={() => handleClick(0)}>Дети</button>
-          <button className='teen' onClick={() => handleClick(1)}>Подростки</button>
-          <button className='adult' onClick={() => handleClick(2)}>Взрослые</button>
+          <button className={ isActiveChild & pageWidth < 768 ? 'child active' : 'child'} onClick={() => handleClick(0)}>Дети</button>
+          <button className={ isActiveTeen & pageWidth < 768 ? 'teen active' : 'teen'} onClick={() => handleClick(1)}>Подростки</button>
+          <button className={ isActiveAdult & pageWidth < 768 ? 'adult active' : 'adult'} onClick={() => handleClick(2)}>Взрослые</button>
         </div>
         <div id='contentParent' className='training__content'>
           {strapiTraining.Section.map((el) => { 
@@ -161,7 +164,7 @@ const Training = () => {
 
             
             return(         
-            <div id = {`${index}`} className={isActive[index] ? `training__content__${index} active` : `training__content__${index} close`}>
+            <div id = {`${index}`} className={isActive[index] ? `training__content__${index} open` : `training__content__${index} close`}>
               <div className='training__content__title'>{el.Title}</div>
               <span className='training__content__text' dangerouslySetInnerHTML={{ __html: el.Text.data.childMarkdownRemark.html}}/>
               {el.Video === null ? 
@@ -193,28 +196,38 @@ const Training = () => {
               {el.Images === null ? 
               (
               <></>
+              ) : el.Images <= 3 ? (
+              <>
+              {el.Images.map((img) => (            
+                <GatsbyImage
+                className="swiper-card"
+                image={getImage(img?.localFile)}
+                alt=""
+              />
+            ))}
+              </>
               ) : (
               <>
-                <Swiper
-                  modules={[Pagination, Navigation ]}
-                  spaceBetween={8}
-                  slidesPerView={countSlide}
-                  navigation
-                  loop={true}
-                  pagination={{ clickable: true }}
-                >
-                {el.Images.map((img) => (
-                  <SwiperSlide>              
-                    <GatsbyImage
-                      loading="eager"
-                      className="swiper-card"
-                      image={getImage(img?.localFile)}
-                      alt=""
-                    />
-                  </SwiperSlide>
-                ))}
-                </Swiper>
-              </>)}
+              <Swiper
+              modules={[Pagination, Navigation ]}
+              spaceBetween={8}
+              slidesPerView={countSlide}
+              navigation = {pageWidth > 768}
+              loop={true}
+              pagination={{ clickable: true }}
+            >
+            {el.Images.map((img) => (
+              <SwiperSlide>              
+                <GatsbyImage
+                className="swiper-card"
+                image={getImage(img?.localFile)}
+                alt=""
+              />
+              </SwiperSlide>
+            ))}
+            </Swiper></>
+              )
+              }
             </div>)
           })}
         </div>
