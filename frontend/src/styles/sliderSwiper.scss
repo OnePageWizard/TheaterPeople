@@ -10,11 +10,13 @@
 .swiper-pagination {
   position: inherit;
   margin-top: 10px;
+  padding-top: 10px;
 }
 
 .swiper-pagination-bullet {
   border-radius: 10px;
-  width: 50px;
+  max-width: 50px;
+  width: calc(5vw);
   background: #7eb12a;
 }
 

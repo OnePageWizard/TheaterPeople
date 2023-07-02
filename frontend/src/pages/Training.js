@@ -8,8 +8,8 @@ import { Navigation, Pagination } from 'swiper';
 import 'swiper/scss';
 import "swiper/scss/pagination";
 import "swiper/scss/navigation";
-import './TrainingSlider.scss'
 import './Training.scss'
+import "../styles/sliderSwiper.scss"
 
 
 const Training = () => {
@@ -154,7 +154,7 @@ const Training = () => {
               else if(el.Images.length >= 6 & pageWidth > 1024){
                 countSlide = 3;
               }
-              else if(el.Images.length >= 4) {
+              else if(el.Images.length >= 4 & pageWidth > 768) {
                 countSlide = 2;
               }
               else {
@@ -167,45 +167,36 @@ const Training = () => {
             <div id = {`${index}`} className={isActive[index] ? `training__content__${index} open` : `training__content__${index} close`}>
               <div className='training__content__title'>{el.Title}</div>
               <span className='training__content__text' dangerouslySetInnerHTML={{ __html: el.Text.data.childMarkdownRemark.html}}/>
-              {el.Video === null ? 
-              (
-              <></>
-              ) : (
-              <>
-                {el.Video.map((video) => (
-                  <iframe
-                  width="560"
-                  height="315"
-                  src={`https://www.youtube.com/embed/${video.URL}`}
-                  srcdoc={`<style>*{padding:0;margin:0;overflow:hidden}
-                  html,body{height:100%}
-                  img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}
-                  span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}
-                  </style>
-                  <a href=https://www.youtube.com/embed/${video.URL}?autoplay=1>
-                  <img src=https://img.youtube.com/vi/${video.URL}/hqdefault.jpg alt='${video.Header}'>
-                  <span>▶</span>
-                  </a>`}
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                  title={video.Header}>
-                </iframe>
-                ))}
-              </>)}
+              <div className='training__content__video'>
+                {el.Video === null ? 
+                (
+                <></>
+                ) : (
+                <>
+                  {el.Video.map((video) => (
+                    <iframe
+                    className='video'
+                    src={`https://www.youtube.com/embed/${video.URL}`}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    srcdoc={`<style>*{padding:0;margin:0;overflow:hidden}
+                    html,body{height:100%}
+                    img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}
+                    span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}
+                    </style>
+                    <a href=https://www.youtube.com/embed/${video.URL}?autoplay=1>
+                    <img src=https://img.youtube.com/vi/${video.URL}/hqdefault.jpg alt='${video.Header}'>
+                    <span>▶</span>
+                    </a>`}
+                    title={video.Header}>
+                  </iframe>
+                  ))}
+                </>)}
+              </div>
               {el.Images === null ? 
               (
               <></>
-              ) : el.Images <= 3 ? (
-              <>
-              {el.Images.map((img) => (            
-                <GatsbyImage
-                className="swiper-card"
-                image={getImage(img?.localFile)}
-                alt=""
-              />
-            ))}
-              </>
               ) : (
               <>
               <Swiper
@@ -237,3 +228,6 @@ const Training = () => {
 }
 
 export default Training
+
+
+                  
