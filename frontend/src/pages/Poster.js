@@ -63,6 +63,7 @@ const Afisha = () => {
                   title={post.Title}
                   about={post.Desc}
                   age={post.Age}
+
                 />
               ))}
             </div>

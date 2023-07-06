@@ -1,6 +1,9 @@
 import React from "react"
+import { Link } from "gatsby" 
+// import { GatsbyImage } from "gatsby-plugin-image"
 
 import "./PosterCard.scss"
+
 
 const PosterCard = props => {
   return (
@@ -12,9 +15,19 @@ const PosterCard = props => {
         </div>
         <div className="poster__age-in-date"><span>{props.age}</span></div>
       </div>
+      <div className="poster__image">
+        {/* <GatsbyImage
+          loading="eager"
+          className="poster__image-content"
+          image={getImage(props.img?.localFile)}
+          alt=""
+        /> */}
+      </div>
       <div className="poster__name">
         <span className="poster__name__title">{props.title}</span>
-        <span className="poster__name__about">{props.about}</span>
+        <Link to={`/performance/${props.title}`}>
+          <span className="poster__name__about">Подробнее о спектакле...</span>
+        </Link>
       </div>
       <div className="poster__age-booking">
         <div className="poster__age-booking__age">
