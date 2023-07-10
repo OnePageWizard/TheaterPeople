@@ -102,6 +102,8 @@ const Training = () => {
           setIsActiveAdult(current => !current);
         }, 10);
         break;
+        default:
+          break;
     }
   };
 
@@ -142,6 +144,8 @@ const Training = () => {
                 break;
               case 'В':
                 index = 2;
+                break;
+              default:
                 break;
             }
             

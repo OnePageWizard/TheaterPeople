@@ -11,8 +11,10 @@ import "swiper/scss/pagination"
 import "swiper/scss/navigation"
 import "../styles/sliderSwiper.scss"
 import "./perfomanceMarkdown.scss"
+import { useState } from "react"
+import { useEffect } from "react"
 
-const performancePage = ({ data }) => {
+const PerformancePage = ({ data }) => {
   const currentMonth = [
     "Января",
     "Февраля",
@@ -27,6 +29,29 @@ const performancePage = ({ data }) => {
     "Ноября",
     "Декабря",
   ]
+  const [pageWidth, setPageWidth] = useState(window.innerWidth);
+  const [countSlide, setCountSlide] = useState(null)
+  
+  window.addEventListener('resize', () => {
+    setPageWidth(window.innerWidth)
+  })
+
+  useEffect(() => {
+    if (data.strapiSpektakli.Media !== null) {
+      if (data.strapiSpektakli.Media.length >= 8 & pageWidth > 1024) {
+        setCountSlide(4)
+      }
+      else if(data.strapiSpektakli.Media.length >= 6 & pageWidth > 1024){
+        setCountSlide(3)
+      }
+      else if(data.strapiSpektakli.Media.length >= 4 & pageWidth > 768) {
+        setCountSlide(2)
+      }
+      else {
+        setCountSlide(1)
+      }
+    }
+  }, [pageWidth, data.strapiSpektakli.Media])
 
   return (
     <Layout>
@@ -92,8 +117,8 @@ const performancePage = ({ data }) => {
           <Swiper
             modules={[Pagination, Navigation]}
             spaceBetween={8}
-            slidesPerView={4}
-            navigation
+            slidesPerView={countSlide}
+            navigation = {pageWidth > 768}
             loop={true}
             pagination={{ clickable: true }}
           >
@@ -155,4 +180,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default performancePage
+export default PerformancePage
