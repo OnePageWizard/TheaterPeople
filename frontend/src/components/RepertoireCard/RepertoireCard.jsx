@@ -7,7 +7,7 @@ import "./RepertoireCard.scss"
 const RepertoireCard = ({ card }) => {
   return (
     <Link
-      to={`/performance/${card.Title}`}
+      to={`/repertoire/${card.Title}`}
       className="overflow-hidden rounded-lg bg-white shadow-sm transition-shadow hover:shadow-md"
     >
       <div className="cardContent">
