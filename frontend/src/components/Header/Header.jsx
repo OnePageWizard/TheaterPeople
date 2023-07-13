@@ -19,17 +19,17 @@ function Header({ HeadActive=false }) {
               </Link>
             </li>
             <li>
-              <Link className="Link" to="/Poster">
+              <Link className="Link" to="/poster">
                 АФИША
               </Link>
             </li>
             <li>
-              <Link className="Link" to="/Training">
+              <Link className="Link" to="/training">
                 ОБУЧЕНИЕ
               </Link>
             </li>
             <li>
-              <Link className="Link" to="/Repertoire">
+              <Link className="Link" to="/repertoire">
                 РЕПЕРТУАР
               </Link>
             </li>
@@ -78,17 +78,17 @@ function Header({ HeadActive=false }) {
                 </Link>
               </li>
               <li>
-                <Link className="Link" to="/Poster">
+                <Link className="Link" to="/poster">
                   АФИША
                 </Link>
               </li>
               <li>
-                <Link className="Link" to="/Training">
+                <Link className="Link" to="/training">
                   ОБУЧЕНИЕ
                 </Link>
               </li>
               <li>
-                <Link className="Link" to="/Repertoire">
+                <Link className="Link" to="/repertoire">
                   РЕПЕРТУАР
                 </Link>
               </li>

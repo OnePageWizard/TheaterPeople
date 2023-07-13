@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
-import Layout from '../components/Layout/Layout'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
+
+import Layout from '../components/Layout/Layout'
+import useIsSsr from '../utils/isSsr'
 
 import 'swiper/scss';
 import "swiper/scss/pagination";
@@ -11,8 +13,8 @@ import "swiper/scss/navigation";
 import './Training.scss'
 import "../styles/sliderSwiper.scss"
 
-
 const Training = () => {
+
   const { strapiTraining } = useStaticQuery(graphql`
     {
       strapiTraining {
@@ -59,12 +61,16 @@ const Training = () => {
   const [isActiveChild, setIsActiveChild] = useState(false);
   const [isActiveTeen, setIsActiveTeen] = useState(false);
   const [isActiveAdult, setIsActiveAdult] = useState(false);
-  const [pageWidth, setPageWidth] = useState(window.innerWidth);
+
+  const isSsr = useIsSsr();
+  const [pageWidth, setPageWidth] = useState(isSsr ? null : window.innerWidth);
   const isActive = [isActiveChild, isActiveTeen, isActiveAdult];
   
-  window.addEventListener('resize', () => {
-    setPageWidth(window.innerWidth)
+  if(!isSsr) {
+    window.addEventListener('resize', () => {
+      setPageWidth(window.innerWidth)
   })
+}
   
   const handleClick = (el) => {
     switch (el)
@@ -106,8 +112,6 @@ const Training = () => {
           break;
     }
   };
-
-
 
   return (
     <Layout>

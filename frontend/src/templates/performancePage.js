@@ -1,9 +1,11 @@
-import * as React from "react"
+import React, { useState, useEffect } from 'react'
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Layout from "../components/Layout/Layout"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Navigation } from "swiper"
+
+import Layout from "../components/Layout/Layout"
+import useIsSsr from '../utils/isSsr'
 
 import "./performancePage.scss"
 import "swiper/scss"
@@ -11,10 +13,9 @@ import "swiper/scss/pagination"
 import "swiper/scss/navigation"
 import "../styles/sliderSwiper.scss"
 import "./perfomanceMarkdown.scss"
-import { useState } from "react"
-import { useEffect } from "react"
 
 const PerformancePage = ({ data }) => {
+
   const currentMonth = [
     "Января",
     "Февраля",
@@ -29,22 +30,26 @@ const PerformancePage = ({ data }) => {
     "Ноября",
     "Декабря",
   ]
-  const [pageWidth, setPageWidth] = useState(window.innerWidth);
+
+  const isSsr = useIsSsr();
+  const [pageWidth, setPageWidth] = useState(isSsr ? null : window.innerWidth);
   const [countSlide, setCountSlide] = useState(null)
-  
-  window.addEventListener('resize', () => {
-    setPageWidth(window.innerWidth)
-  })
+
+  if(!isSsr) {
+      window.addEventListener('resize', () => {
+      setPageWidth(window.innerWidth)
+    })
+  }
 
   useEffect(() => {
     if (data.strapiSpektakli.Media !== null) {
-      if (data.strapiSpektakli.Media.length >= 8 & pageWidth > 1024) {
+      if (data.strapiSpektakli.Media.length >= 8) {
         setCountSlide(4)
       }
-      else if(data.strapiSpektakli.Media.length >= 6 & pageWidth > 1024){
+      else if(data.strapiSpektakli.Media.length >= 6){
         setCountSlide(3)
       }
-      else if(data.strapiSpektakli.Media.length >= 4 & pageWidth > 768) {
+      else if(data.strapiSpektakli.Media.length >= 4) {
         setCountSlide(2)
       }
       else {
@@ -55,30 +60,30 @@ const PerformancePage = ({ data }) => {
 
   return (
     <Layout>
-      <div class="main-content">
-        <div class="head-block">
+      <div className="main-content">
+        <div className="head-block">
           <div className="background-black"></div>
           <GatsbyImage
             className="head-block__image"
             image={getImage(data.strapiSpektakli.Cover?.localFile)}
             alt=""
           />
-          <div class="head-block-name">
-            <span class="name-age">
+          <div className="head-block-name">
+            <span className="name-age">
               «{data.strapiSpektakli.Title}» {data.strapiSpektakli.Age}
             </span>
-            <span class="perfomance-about-briefly">
+            <span className="perfomance-about-briefly">
               {data.strapiSpektakli.ShortDesc}
             </span>
           </div>
         </div>
 
-        <div class="bottom-block">
-          <div class="block-text">
-            <div class="left-block">
-              <div class="block-premier">
-                <span class="conf">ПРЕМЬЕРА СОСТОЯЛАСЬ</span>
-                <span class="date">
+        <div className="bottom-block">
+          <div className="block-text">
+            <div className="left-block">
+              <div className="block-premier">
+                <span className="conf">ПРЕМЬЕРА СОСТОЯЛАСЬ</span>
+                <span className="date">
                   {data.strapiSpektakli.Premiere.slice(8) < 9
                     ? data.strapiSpektakli.Premiere.slice(9)
                     : data.strapiSpektakli.Premiere.slice(8)}{" "}
@@ -92,17 +97,17 @@ const PerformancePage = ({ data }) => {
                 </span>
               </div>
 
-              <div class="block-director">
-                <span class="director-header">РЕЖИССЕР</span>
-                <span class="director-name">
+              <div className="block-director">
+                <span className="director-header">РЕЖИССЕР</span>
+                <span className="director-name">
                   {data.strapiSpektakli.Director}
                 </span>
               </div>
             </div>
 
-            <div class="right-block">
-              <span class="about-header">О СПЕКТАКЛЕ</span>
-              <span class="about-perfomance">
+            <div className="right-block">
+              <span className="about-header">О СПЕКТАКЛЕ</span>
+              <span className="about-perfomance">
                 <div
                   className="about-perfomance__text"
                   dangerouslySetInnerHTML={{

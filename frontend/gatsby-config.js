@@ -6,6 +6,9 @@ require("dotenv").config({
 //  * @type {import('gatsby').GatsbyConfig}
 //  */
 module.exports = {
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: [
     {
       resolve: `gatsby-source-strapi`,
@@ -86,5 +89,13 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
     "gatsby-transformer-remark",
+    {
+      resolve: 'gatsby-plugin-s3',
+      options: {
+        bucketName: 'www.theaterpeople-test.ru',
+        region: 'us-east-1',
+        customAwsEndpointHostname: 'storage.yandexcloud.net'
+      }
+    },
   ],
 }

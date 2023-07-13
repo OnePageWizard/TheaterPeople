@@ -29,7 +29,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (performances.length > 0) {
     performances.forEach((performance) => {
       createPage({
-        path: `/performance/${performance.Title}`,
+        path: `/repertoire/${performance.Title}`,
         component: performancePage,
         context: {
             Title: performance.Title,
